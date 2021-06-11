@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Pitch from "./Pitch.svelte";
 </script>
 
 <main>
@@ -7,11 +8,15 @@
 	<h2>平板</h2>
 
 	<table>
-		<tr>
+		<!-- <tr>
 			<td>開ける</td>
 			<td>あける</td>
+		</tr> -->
+		<tr>
+			<div style="position: relative; width: 400px; height: 150px; background-color: yellow;">
+				<Pitch title="日が強い" word="^ひ|がつ^よ|い"/>
+			</div>
 		</tr>
-
 	</table>
 </main>
 

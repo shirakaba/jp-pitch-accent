@@ -1,45 +1,77 @@
 <script lang="ts">
     import * as Pancake from "@sveltejs/pancake";
 
-    export let points = [
-        { x: 0,    y: 0 },
-        { x: 1,    y: 1 },
-        { x: 2,    y: 4 },
-        { x: 3,    y: 9 },
-        { x: 4,    y: 16 },
-        { x: 5,    y: 25 },
-        { x: 6,    y: 36 },
-        { x: 7,    y: 49 },
-        { x: 8,    y: 64 },
-        { x: 9,    y: 81 },
-        { x: 10, y: 100 }
-    ];
-    export let x1 = 0;
-    export let x2 = 10;
-    export let y1 = 0;
-    export let y2 = 100;
+    let x1 = 0;
+    let x2 = 0;
+    let y1 = 0;
+    let y2 = 1;
     export let title = "";
+
+    export let word: string = "^ひ|がつ^よ|い";
+    let points: { x: number, y: number, char: string }[] = [];
+    $: {
+        let buffer = "";
+        let y: 0|1 = 0;
+        const nextPoints: { x: number, y: number, char: string }[] = [];
+        for(let i = 0; i < word.length; i++){
+            const char = word[i];
+
+            if(char === "^"){
+                y = 1;
+                continue;
+            }
+
+            if(char === "|"){
+                y = 0;
+                continue;
+            }
+
+            // TODO: throw error here if character is non-kana.
+
+            buffer = `${buffer}${char}`;
+
+            if(i === word.length - 1 && buffer.length === 1){
+                /**
+                 * 1-mora 頭高 words in isolation are relatively high in pitch.
+                 * @see https://www.patreon.com/posts/japanese-episode-36438446 (Dogen episode 6.5)
+                 */
+                y = 1;
+            }
+
+            nextPoints.push({
+                x: buffer.length - 1,
+                y,
+                char,
+            });
+        }
+        points = nextPoints;
+        console.log(`points:`, nextPoints);
+        x2 = buffer.length - 1;
+    }
 </script>
 
 <div class="chart">
     <!-- It's this Pancake.chart that needs text-align: center; to be reset to text-align: left; -->
     <Pancake.Chart {x1} {x2} {y1} {y2}>
         <!-- Chart title. See https://github.com/Rich-Harris/pancake/blob/master/site/examples/data/0/App.svelte -->
-        <Pancake.Point x={x2 / 20} y={y2}>
-            <div class="text">
-                <h3 class="title">{title}</h3>
-            </div>
-        </Pancake.Point>
+        {#if title}
+            <Pancake.Point x={x1} y={2 * y2}>
+                <div class="text">
+                    <h3 class="title">{title}</h3>
+                </div>
+            </Pancake.Point>
+        {/if}
 
-        <Pancake.Box {x2} {y2}>
+        <!-- <Pancake.Box {x2} {y2}>
             <div class="axes"></div>
-        </Pancake.Box>
+        </Pancake.Box> -->
 
-        <Pancake.Grid vertical count={5} let:value>
-            <span class="x label">{value}</span>
+        <Pancake.Grid vertical count={x2 + 1} let:value>
+            <!-- <span class="x label">{value}</span> -->
+            <span class="x label">{points[value].char}</span>
         </Pancake.Grid>
 
-        <Pancake.Grid horizontal count={5} let:value let:last>
+        <Pancake.Grid horizontal count={2} let:value let:last>
             <div class="y label"><span>{value} {last ? '%' : ''}</span></div>
             <!-- <span class="y label">{value}</span> -->
         </Pancake.Grid>
