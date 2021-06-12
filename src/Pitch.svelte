@@ -19,6 +19,7 @@
     let pointsOfWhichParticles: PitchPoint[] = [];
     $: {
         let morae = "";
+        let mora = "";
         let y: 0|1 = 0;
         let isParticle: boolean = false;
         const nextPoints: PitchPoint[] = [];
@@ -40,9 +41,28 @@
                 continue;
             }
 
-            // TODO: throw error here if character is non-kana.
+            // if(!/[\p{Script_Extensions=Hiragana}\p{Script_Extensions=Katakana}]/.test(char)){
+            if(!/[\u3040-\u3096\u30A0-\u30FF]/.test(char)){
+                throw new Error(`Expected character in full-width hiragana or katakana range, but got: ${char}`);
+            }
 
-            morae = `${morae}${char}`;
+            mora = `${mora}${char}`;
+
+            if(/ゃ|ゅ|ょ/.test(char)){
+                if(!/き|ぎ|し|じ|ち|に|ひ|び|ぴ|み|り/.test(mora[0])){
+                    throw new Error(`Expected mora ending with /ゃ|ゅ|ょ/ to be preceded by /き|ぎ|し|じ|ち|に|ひ|び|ぴ|み|り/, but got: ${mora}`);
+                }
+                continue;
+            }
+
+            if(/ャ|ュ|ョ/.test(char)){
+                if(!/キ|ギ|シ|ジ|チ|ニ|ヒ|ビ|ピ|ミ|リ/.test(mora[0])){
+                    throw new Error(`Expected mora ending with /ャ|ュ|ョ/ to be preceded by /キ|ギ|シ|ジ|チ|ニ|ヒ|ビ|ピ|ミ|リ/, but got: ${mora}`);
+                }
+                continue;
+            }
+
+            morae = `${morae}${mora}`;
 
             if(i === word.length - 1 && morae.length === 1){
                 /**
@@ -60,9 +80,10 @@
             });
 
             isParticle = false;
+            mora = "";
         }
         points = nextPoints;
-        console.log(`points:`, nextPoints);
+        // console.log(`points:`, nextPoints);
         x2 = morae.length - 1;
         pointsOfWhichParticles = points.filter(p => p.isParticle);
     }
