@@ -7,20 +7,31 @@
 
 	<h2>Heat</h2>
 
-	<StyledPitch title="火が強い" word="^ひ|!がつ^よ|い"/>
-	<StyledPitch title="日が出る" word="ひ^!がで|る"/>
+	<div class="pitchesContainer">
+		<StyledPitch title="火が強い" word="^ひ|!がつ^よ|い"/>
+		<StyledPitch title="日が出る" word="ひ^!がで|る"/>
+	</div>
 
 	<h2>Life</h2>
 
-	<StyledPitch title="木が高い" word="^き!|がた^か|い"/>
-	<StyledPitch title="気が長い" word="き^!がなが|い"/>
+	<div class="pitchesContainer">
+		<StyledPitch title="木が高い" word="^き!|がた^か|い"/>
+		<StyledPitch title="気が長い" word="き^!がなが|い"/>
+	</div>
 </main>
 
 <style>
 	main {
 		padding: 1em;
-		/* max-width: 240px; */
+		max-width: 640px;
 		margin: 0 auto;
+	}
+
+	.pitchesContainer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 2em;
 	}
 
 	h1 {
@@ -31,11 +42,5 @@
 
 	h2 {
 		text-transform: uppercase;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
 	}
 </style>

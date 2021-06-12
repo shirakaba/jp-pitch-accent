@@ -28,8 +28,6 @@
 <style>
     .container {
         position: relative;
-        display: inline-block;
         height: 150px;
-        margin-top: 1em;
     }
 </style>
