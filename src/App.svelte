@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Pitch from "./Pitch.svelte";
+	import StyledPitch from "./StyledPitch.svelte";
 </script>
 
 <main>
@@ -14,17 +14,17 @@
 		</tr> -->
 		<tr>
 			<div style="position: relative; width: 400px; height: 150px; background-color: yellow;">
-				<Pitch --stroke-color="black" title="日が強い" word="^ひ|がつ^よ|い"/>
+				<StyledPitch title="日が強い" word="^ひ|がつ^よ|い"/>
 			</div>
 		</tr>
 		<tr>
 			<div style="position: relative; width: 400px; height: 300px; background-color: yellow;">
-				<Pitch --stroke-color="black" title="日が強い" word="^ひ|がつ^よ|い"/>
+				<StyledPitch title="日が強い" word="^ひ|がつ^よ|い"/>
 			</div>
 		</tr>
 		<tr>
 			<div style="position: relative; width: 800px; height: 300px; background-color: yellow;">
-				<Pitch --stroke-color="black" title="日が強い" word="^ひ|がつ^よ|い"/>
+				<StyledPitch title="日が強い" word="^ひ|がつ^よ|い"/>
 			</div>
 		</tr>
 	</table>

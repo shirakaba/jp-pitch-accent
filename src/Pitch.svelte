@@ -64,11 +64,15 @@
             <span class="x label">{points[value].char}</span>
         </Pancake.Grid>
 
-        <Pancake.Svg>
-            <Pancake.SvgLine data={points} let:d>
-                <path class="data" {d}/>
-            </Pancake.SvgLine>
-        </Pancake.Svg>
+		<Pancake.Svg>
+			<Pancake.SvgScatterplot data={points} let:d>
+				<path class="avg" {d}/>
+			</Pancake.SvgScatterplot>
+
+			<Pancake.SvgLine data={points} let:d>
+				<path class="trend" {d}/>
+			</Pancake.SvgLine>
+		</Pancake.Svg>
     </Pancake.Chart>
 </div>
 
@@ -96,11 +100,20 @@
         text-align: center;
         font-size: 1em;
     }
-    path.data {
-        stroke: var(--stroke-color);
-        stroke-linejoin: round;
-        stroke-linecap: round;
-        stroke-width: 2px;
-        fill: none;
-    }
+
+	path.avg {
+		stroke: var(--stroke-color);
+		opacity: 1;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-width: var(--joint-width);
+		fill: none;
+	}
+	path.trend {
+		stroke: var(--stroke-color);
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-width: var(--stroke-width);
+		fill: none;
+	}
 </style>
