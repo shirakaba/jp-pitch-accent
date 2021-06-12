@@ -3,36 +3,34 @@
 </script>
 
 <main>
-	<h1>Verbs</h1>
+	<h1>1-4 mora nouns</h1>
 
-	<h2>平板</h2>
+	<h2>Heat</h2>
 
-	<table>
-		<!-- <tr>
-			<td>開ける</td>
-			<td>あける</td>
-		</tr> -->
-		<tr>
-			<div style="position: relative; width: 400px; height: 150px;">
-				<StyledPitch title="日が強い" word="^ひ|!がつ^よ|い"/>
-			</div>
-		</tr>
-	</table>
+	<StyledPitch title="火が強い" word="^ひ|!がつ^よ|い"/>
+	<StyledPitch title="日が出る" word="ひ^!がで|る"/>
+
+	<h2>Life</h2>
+
+	<StyledPitch title="木が高い" word="^き!|がた^か|い"/>
+	<StyledPitch title="気が長い" word="き^!がなが|い"/>
 </main>
 
 <style>
 	main {
-		text-align: center;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
 	}
 
 	h1 {
-		color: #ff3e00;
+		text-align: center;
+		color: #252525;
 		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+	}
+
+	h2 {
+		text-transform: uppercase;
 	}
 
 	@media (min-width: 640px) {

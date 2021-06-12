@@ -121,6 +121,7 @@
         text-align: left;
     }
     .title {
+        color: #AD2A20;
         position: absolute;
         white-space: pre;
         top: calc(var(--chart-top-padding) * -1);
