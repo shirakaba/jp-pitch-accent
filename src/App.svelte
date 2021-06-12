@@ -35,7 +35,12 @@
 
 	<h3>Question words</h3>
 
-	<StyledPitch title="どこが" word="^ど|こ!が"/>
+	<StyledPitch title="何処が" word="^ど|こ!が"/>
+	<StyledPitch title="どれが" word="^ど|れ!が"/>
+	<StyledPitch title="どうか" word="^ど|う!か"/>
+	<StyledPitch title="何が" word="^な|に!が"/>
+	<StyledPitch title="何故か" word="^な|ぜ!か"/>
+	<StyledPitch title="誰が" word="^だ|れ!が"/>
 </main>
 
 <style>
