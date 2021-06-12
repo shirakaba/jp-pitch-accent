@@ -10,7 +10,7 @@
     interface PitchPoint {
         x: number;
         y: number;
-        char: string;
+        mora: string;
         isParticle: boolean;
     }
 
@@ -18,7 +18,7 @@
     let points: PitchPoint[] = [];
     let pointsOfWhichParticles: PitchPoint[] = [];
     $: {
-        let buffer = "";
+        let morae = "";
         let y: 0|1 = 0;
         let isParticle: boolean = false;
         const nextPoints: PitchPoint[] = [];
@@ -42,9 +42,9 @@
 
             // TODO: throw error here if character is non-kana.
 
-            buffer = `${buffer}${char}`;
+            morae = `${morae}${char}`;
 
-            if(i === word.length - 1 && buffer.length === 1){
+            if(i === word.length - 1 && morae.length === 1){
                 /**
                  * 1-mora 頭高 words in isolation are relatively high in pitch.
                  * @see https://www.patreon.com/posts/japanese-episode-36438446 (Dogen episode 6.5)
@@ -53,9 +53,9 @@
             }
 
             nextPoints.push({
-                x: buffer.length - 1,
+                x: morae.length - 1,
                 y,
-                char,
+                mora: char,
                 isParticle,
             });
 
@@ -63,7 +63,7 @@
         }
         points = nextPoints;
         console.log(`points:`, nextPoints);
-        x2 = buffer.length - 1;
+        x2 = morae.length - 1;
         pointsOfWhichParticles = points.filter(p => p.isParticle);
     }
 </script>
@@ -78,8 +78,8 @@
         {/if}
 
         <!-- Kana -->
-        <Pancake.Grid vertical count={x2 + 1} let:value>
-            <span class="x label">{points[value].char}</span>
+        <Pancake.Grid vertical count={x2} let:value>
+            <span class="x label">{points[value].mora}</span>
         </Pancake.Grid>
 
 		<Pancake.Svg>
