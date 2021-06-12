@@ -7,12 +7,21 @@
     let y2 = 1;
     export let title = "";
 
-    export let word: string = "^ひ|がつ^よ|い";
-    let points: { x: number, y: number, char: string }[] = [];
+    interface PitchPoint {
+        x: number;
+        y: number;
+        char: string;
+        isParticle: boolean;
+    }
+
+    export let word: string = "^ひ|!がつ^よ|い";
+    let points: PitchPoint[] = [];
+    let pointsOfWhichParticles: PitchPoint[] = [];
     $: {
         let buffer = "";
         let y: 0|1 = 0;
-        const nextPoints: { x: number, y: number, char: string }[] = [];
+        let isParticle: boolean = false;
+        const nextPoints: PitchPoint[] = [];
         for(let i = 0; i < word.length; i++){
             const char = word[i];
 
@@ -23,6 +32,11 @@
 
             if(char === "|"){
                 y = 0;
+                continue;
+            }
+
+            if(char === "!"){
+                isParticle = true;
                 continue;
             }
 
@@ -42,38 +56,49 @@
                 x: buffer.length - 1,
                 y,
                 char,
+                isParticle,
             });
+
+            isParticle = false;
         }
         points = nextPoints;
         console.log(`points:`, nextPoints);
         x2 = buffer.length - 1;
+        pointsOfWhichParticles = points.filter(p => p.isParticle);
     }
 </script>
 
 <div class="chart">
-    <!-- It's this Pancake.chart that needs text-align: center; to be reset to text-align: left; -->
     <Pancake.Chart {x1} {x2} {y1} {y2}>
-        <!-- Chart title. See https://github.com/Rich-Harris/pancake/blob/master/site/examples/data/0/App.svelte -->
+        <!-- Title -->
         {#if title}
             <Pancake.Point x={x1} y={y2}>
                 <h3 class="title">{title}</h3>
             </Pancake.Point>
         {/if}
 
+        <!-- Kana -->
         <Pancake.Grid vertical count={x2 + 1} let:value>
             <span class="x label">{points[value].char}</span>
         </Pancake.Grid>
 
 		<Pancake.Svg>
+            <!-- Line -->
             <Pancake.SvgLine data={points} let:d>
                 <path class="trend" {d}/>
             </Pancake.SvgLine>
-
+            
+            <!-- Morae -->
 			<Pancake.SvgScatterplot data={points} let:d>
 				<path class="joint outer" {d}/>
+			</Pancake.SvgScatterplot>
+            
+            <!-- Particles -->
+			<Pancake.SvgScatterplot data={pointsOfWhichParticles} let:d>
 				<path class="joint inner" {d}/>
 			</Pancake.SvgScatterplot>
-
+            
+            <!-- Title -->
             <Pancake.Point x={x1} y={y2}>
                 <h3 class="title">{title}</h3>
             </Pancake.Point>

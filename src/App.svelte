@@ -13,18 +13,8 @@
 			<td>あける</td>
 		</tr> -->
 		<tr>
-			<div style="position: relative; width: 400px; height: 150px; background-color: yellow;">
-				<StyledPitch title="日が強い" word="^ひ|がつ^よ|い"/>
-			</div>
-		</tr>
-		<tr>
-			<div style="position: relative; width: 400px; height: 300px; background-color: yellow;">
-				<StyledPitch title="日が強い" word="^ひ|がつ^よ|い"/>
-			</div>
-		</tr>
-		<tr>
-			<div style="position: relative; width: 800px; height: 300px; background-color: yellow;">
-				<StyledPitch title="日が強い" word="^ひ|がつ^よ|い"/>
+			<div style="position: relative; width: 400px; height: 150px;">
+				<StyledPitch title="日が強い" word="^ひ|!がつ^よ|い"/>
 			</div>
 		</tr>
 	</table>
