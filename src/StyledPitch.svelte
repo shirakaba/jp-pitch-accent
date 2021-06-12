@@ -2,7 +2,6 @@
 	import Pitch from "./Pitch.svelte";
 
     let widthPerMora = 60;
-    let height = 150;
 
     export let title: string;
     export let word: string;
@@ -10,7 +9,7 @@
     $: width = widthPerMora * morae;
 </script>
 
-<div style="position: relative; width: {width}px; height: {height}px; margin-top: 8px;">
+<div class="container" style="width: {width}px;">
     <Pitch
         --stroke-color="#252525"
         --stroke-width="4px"
@@ -25,3 +24,11 @@
         {word}
     />
 </div>
+
+<style>
+    .container {
+        position: relative;
+        height: 150px;
+        margin-top: 1em;
+    }
+</style>
