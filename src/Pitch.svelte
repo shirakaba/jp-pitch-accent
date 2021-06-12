@@ -77,20 +77,24 @@
 </div>
 
 <style>
-    .title {
-        position: absolute;
-        white-space: pre;
-        top: -3em;
-    }
     .chart {
-        --chart-bottom-padding: calc(1em + var(--kana-size) + (var(--joint-width) / 2));
+        --chart-top-padding: calc(var(--gutter-size) + var(--title-size) + (var(--joint-width) / 2));
+        --chart-bottom-padding: calc(var(--gutter-size) + var(--kana-size) + (var(--joint-width) / 2));
+        --chart-left-padding: calc(var(--gutter-size) + (var(--joint-width) / 2));
+        --chart-right-padding: var(--chart-left-padding);
         height: 100%;
         /* top | right | bottom | left */
-        padding: 3em 1em var(--chart-bottom-padding) 1em;
+        padding: var(--chart-top-padding) var(--chart-right-padding) var(--chart-bottom-padding) var(--chart-left-padding);
         box-sizing: border-box;
     }
     :global(.chart > div) {
         text-align: left;
+    }
+    .title {
+        position: absolute;
+        white-space: pre;
+        top: calc(var(--chart-top-padding) * -1);
+        left: calc(0em - var(--joint-width) / 2);
     }
     .x.label {
         position: absolute;
