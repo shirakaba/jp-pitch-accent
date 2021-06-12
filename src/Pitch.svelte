@@ -55,25 +55,13 @@
     <Pancake.Chart {x1} {x2} {y1} {y2}>
         <!-- Chart title. See https://github.com/Rich-Harris/pancake/blob/master/site/examples/data/0/App.svelte -->
         {#if title}
-            <Pancake.Point x={x1} y={2 * y2}>
-                <div class="text">
-                    <h3 class="title">{title}</h3>
-                </div>
+            <Pancake.Point x={x1} y={y2}>
+                <h3 class="title">{title}</h3>
             </Pancake.Point>
         {/if}
 
-        <!-- <Pancake.Box {x2} {y2}>
-            <div class="axes"></div>
-        </Pancake.Box> -->
-
         <Pancake.Grid vertical count={x2 + 1} let:value>
-            <!-- <span class="x label">{value}</span> -->
             <span class="x label">{points[value].char}</span>
-        </Pancake.Grid>
-
-        <Pancake.Grid horizontal count={2} let:value let:last>
-            <div class="y label"><span>{value} {last ? '%' : ''}</span></div>
-            <!-- <span class="y label">{value}</span> -->
         </Pancake.Grid>
 
         <Pancake.Svg>
@@ -85,52 +73,31 @@
 </div>
 
 <style>
-    .grid-line {
-        position: relative;
-        display: block;
-    }
-    .grid-line.horizontal {
-        width: calc(100% + 2em);
-        left: -2em;
-        border-bottom: 1px dashed #ccc;
-    }
     .title {
+        position: absolute;
         white-space: pre;
+        top: -3em;
     }
     .chart {
         height: 100%;
-        padding: 3em 2em 2em 3em;
+        /* top | right | bottom | left */
+        padding: 3em 1em 2em 1em;
         box-sizing: border-box;
     }
     :global(.chart > div) {
         text-align: left;
     }
-    .axes {
-        width: 100%;
-        height: 100%;
-        border-left: 1px solid black;
-        border-bottom: 1px solid black;
-    }
-    .y.label {
-        position: absolute;
-        left: -3.5em;
-        width: 2em;
-        text-align: right;
-        bottom: -0.5em;
-        white-space: pre;
-        font-size: 12px;
-    }
     .x.label {
         position: absolute;
-        width: 4em;
-        left: -2em;
-        bottom: -22px;
+        width: 2em;
+        left: -1em;
+        bottom: -2em;
         font-family: sans-serif;
         text-align: center;
-        font-size: 12px;
+        font-size: 1em;
     }
     path.data {
-        stroke: red;
+        stroke: var(--stroke-color);
         stroke-linejoin: round;
         stroke-linecap: round;
         stroke-width: 2px;
