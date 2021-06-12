@@ -83,9 +83,10 @@
         top: -3em;
     }
     .chart {
+        --chart-bottom-padding: calc(1em + var(--kana-size) + (var(--joint-width) / 2));
         height: 100%;
         /* top | right | bottom | left */
-        padding: 3em 1em 2em 1em;
+        padding: 3em 1em var(--chart-bottom-padding) 1em;
         box-sizing: border-box;
     }
     :global(.chart > div) {
@@ -95,10 +96,10 @@
         position: absolute;
         width: 2em;
         left: -1em;
-        bottom: -2em;
+        bottom: calc(var(--chart-bottom-padding) * -1);
         font-family: sans-serif;
         text-align: center;
-        font-size: 1em;
+        font-size: var(--kana-size);
     }
 
 	path.avg {
