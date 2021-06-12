@@ -65,22 +65,27 @@
         </Pancake.Grid>
 
 		<Pancake.Svg>
+            <Pancake.SvgLine data={points} let:d>
+                <path class="trend" {d}/>
+            </Pancake.SvgLine>
+
 			<Pancake.SvgScatterplot data={points} let:d>
-				<path class="joint" {d}/>
+				<path class="joint outer" {d}/>
+				<path class="joint inner" {d}/>
 			</Pancake.SvgScatterplot>
 
-			<Pancake.SvgLine data={points} let:d>
-				<path class="trend" {d}/>
-			</Pancake.SvgLine>
+            <Pancake.Point x={x1} y={y2}>
+                <h3 class="title">{title}</h3>
+            </Pancake.Point>
 		</Pancake.Svg>
     </Pancake.Chart>
 </div>
 
 <style>
     .chart {
-        --chart-top-padding: calc(var(--gutter-size) + var(--title-size) + (var(--joint-width) / 2));
-        --chart-bottom-padding: calc(var(--gutter-size) + var(--kana-size) + (var(--joint-width) / 2));
-        --chart-left-padding: calc(var(--gutter-size) + (var(--joint-width) / 2));
+        --chart-top-padding: calc(var(--gutter-size) + var(--title-size) + (var(--joint-outer-width) / 2));
+        --chart-bottom-padding: calc(var(--gutter-size) + var(--kana-size) + (var(--joint-outer-width) / 2));
+        --chart-left-padding: calc(var(--gutter-size) + (var(--joint-outer-width) / 2));
         --chart-right-padding: var(--chart-left-padding);
         height: 100%;
         /* top | right | bottom | left */
@@ -94,7 +99,7 @@
         position: absolute;
         white-space: pre;
         top: calc(var(--chart-top-padding) * -1);
-        left: calc(0em - var(--joint-width) / 2);
+        left: calc(0em - var(--joint-outer-width) / 2);
     }
     .x.label {
         position: absolute;
@@ -107,12 +112,18 @@
     }
 
 	path.joint {
-		stroke: var(--stroke-color);
 		opacity: 1;
 		stroke-linejoin: round;
 		stroke-linecap: round;
-		stroke-width: var(--joint-width);
 		fill: none;
+	}
+    path.joint.outer {
+		stroke-width: var(--joint-outer-width);
+        stroke: var(--joint-outer-color);
+    }
+	path.joint.inner {
+		stroke-width: var(--joint-inner-width);
+        stroke: var(--joint-inner-color);
 	}
 	path.trend {
 		stroke: var(--stroke-color);
