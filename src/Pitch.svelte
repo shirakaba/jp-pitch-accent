@@ -66,7 +66,7 @@
 
 		<Pancake.Svg>
 			<Pancake.SvgScatterplot data={points} let:d>
-				<path class="avg" {d}/>
+				<path class="joint" {d}/>
 			</Pancake.SvgScatterplot>
 
 			<Pancake.SvgLine data={points} let:d>
@@ -106,7 +106,7 @@
         font-size: var(--kana-size);
     }
 
-	path.avg {
+	path.joint {
 		stroke: var(--stroke-color);
 		opacity: 1;
 		stroke-linejoin: round;
