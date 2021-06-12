@@ -48,18 +48,28 @@
 
             mora = `${mora}${char}`;
 
+            if(i < word.length - 1){
+                const nextChar = word[i + 1];
+                if(/ゃ|ゅ|ょ|ャ|ュ|ョ/.test(nextChar)){
+                    // Mora consists of another morpheme, so agglutinate that too.
+
+                    // TODO: support small adjoining katakana like ェ for ジェイミー.
+                    // Note: We don't presently support more than two small adjoining katakana,
+                    // e.g. ジェィミー. I'm not sure whether it's valid or not.
+                    continue;
+                }
+            }
+
             if(/ゃ|ゅ|ょ/.test(char)){
                 if(!/き|ぎ|し|じ|ち|に|ひ|び|ぴ|み|り/.test(mora[0])){
                     throw new Error(`Expected mora ending with /ゃ|ゅ|ょ/ to be preceded by /き|ぎ|し|じ|ち|に|ひ|び|ぴ|み|り/, but got: ${mora}`);
                 }
-                continue;
             }
 
             if(/ャ|ュ|ョ/.test(char)){
                 if(!/キ|ギ|シ|ジ|チ|ニ|ヒ|ビ|ピ|ミ|リ/.test(mora[0])){
                     throw new Error(`Expected mora ending with /ャ|ュ|ョ/ to be preceded by /キ|ギ|シ|ジ|チ|ニ|ヒ|ビ|ピ|ミ|リ/, but got: ${mora}`);
                 }
-                continue;
             }
 
             morae = `${morae}${mora}`;
@@ -73,9 +83,9 @@
             }
 
             nextPoints.push({
-                x: morae.length - 1,
+                x: nextPoints.length,
                 y,
-                mora: char,
+                mora,
                 isParticle,
             });
 
@@ -83,8 +93,7 @@
             mora = "";
         }
         points = nextPoints;
-        // console.log(`points:`, nextPoints);
-        x2 = morae.length - 1;
+        x2 = nextPoints.length - 1;
         pointsOfWhichParticles = points.filter(p => p.isParticle);
     }
 </script>
@@ -118,11 +127,6 @@
 			<Pancake.SvgScatterplot data={pointsOfWhichParticles} let:d>
 				<path class="joint inner" {d}/>
 			</Pancake.SvgScatterplot>
-            
-            <!-- Title -->
-            <Pancake.Point x={x1} y={y2}>
-                <h3 class="title">{title}</h3>
-            </Pancake.Point>
 		</Pancake.Svg>
     </Pancake.Chart>
 </div>
