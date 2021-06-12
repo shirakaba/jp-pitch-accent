@@ -1,6 +1,6 @@
 # jp-pitch-accent
 
-A demo of how to use Svelte components (particularly the brilliant `@sveltejs/pancake` graphing library) to take Japanese pitch accent notes. Please do check out [Dōgen](https://www.patreon.com/dogen) on Patreon, as its his exceptional lessons I'm learning from!
+A demo of how to use Svelte components (particularly Rich Harris's brilliant [@sveltejs/pancake](https://github.com/Rich-Harris/pancake) graphing library) to take Japanese pitch accent notes. Please do check out [Dōgen](https://www.patreon.com/dogen) on Patreon, as its his exceptional lessons I'm learning from!
 
 It's not my immediate plan to refactor this into an installable library, but if there is interest, I may consider it.
 
