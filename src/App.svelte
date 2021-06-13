@@ -149,7 +149,7 @@
 	<StyledPitch title="火曜日の" word="か^よ|うび!の"/>
 	<StyledPitch title="皆さんは" word="み^な|さん!は"/>
 	<StyledPitch title="アパートは" word="ア^パ|ート!は"/>
-	<StyledPitch title="失礼な" word="し^ち|れい!な"/>
+	<StyledPitch title="失礼な" word="し^つ|れい!な"/>
 	<StyledPitch title="飲み物は" word="の^み|もの!は"/>
 	
 	<p>Notable exceptions in the 尾高 family:</p>
