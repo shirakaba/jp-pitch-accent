@@ -4,13 +4,14 @@
     import { convertStringToPitchPoints } from "./convertStringToPitchPoints";
 
     export let mode: "inline"|"chart"|"chart-compact" = "chart-compact";
-    $: chartHeight = mode === "chart-compact" ? "7em" : "150px";
     $: jointOuterWidth = mode === "chart-compact" ? "13px" : "20px";
     $: jointInnerWidth = mode === "chart-compact" ? "7px" : "14px";
     $: chartStrokeWidth = mode === "chart-compact" ? "3px" : "4px";
     $: widthPerMora = mode === "chart-compact" ? 1.75 : 4;
-
+    
+    const titleIsDelegatedToSvg: boolean = false;
     export let title: string;
+    $: chartHeight = mode === "chart-compact" ? (titleIsDelegatedToSvg ? "7em" : "4.5em") : (titleIsDelegatedToSvg ? "150px" : "75px");
     export let word: string;
     $: morae = word.replace(/\^|!|\|/g, "").length;
     $: width = widthPerMora * morae;
@@ -24,24 +25,30 @@
 </script>
 
 {#if mode === "chart" || mode === "chart-compact"}
-    <div class="pitchChartContainer" style="width: {width}em; height: {chartHeight};">
-        <Pitch
-            --stroke-color={myBlack}
-            --stroke-width={chartStrokeWidth}
-            --joint-outer-width={jointOuterWidth}
-            --joint-inner-width={jointInnerWidth}
-            --joint-outer-color="#252525"
-            --joint-inner-color="#FEFEF2"
-            --title-color={myRed}
-            --particle-color={myGrey}
-            --kana-color={myBlack}
-            --title-size="2em"
-            --kana-size="1em"
-            --gutter-size="1em"
+    <tr class="pitchChartRow">
+        <td style="color: {myRed};">
             {title}
-            {points}
-        />
-    </div>
+        </td>
+        <td>
+            <div class="pitchChartContainer" style="width: {width}em; height: {chartHeight};">
+                <Pitch
+                    --stroke-color={myBlack}
+                    --stroke-width={chartStrokeWidth}
+                    --joint-outer-width={jointOuterWidth}
+                    --joint-inner-width={jointInnerWidth}
+                    --joint-outer-color="#252525"
+                    --joint-inner-color="#FEFEF2"
+                    --title-color={myRed}
+                    --particle-color={myGrey}
+                    --kana-color={myBlack}
+                    --title-size="2em"
+                    --kana-size="1em"
+                    --gutter-size="1em"
+                    {points}
+                />
+            </div>
+        </td>
+    </tr>
 {:else}
     <InlinePitch
         --text-color={myBlack}
@@ -56,6 +63,9 @@
 {/if}
 
 <style>
+    .pitchChartRow {
+        vertical-align: bottom;
+    }
     .pitchChartContainer {
         position: relative;
     }

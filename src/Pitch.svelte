@@ -12,7 +12,7 @@
     $: x2 = points.length - 1;
 </script>
 
-<div class="chart">
+<div class="chart" style="{title ? "" : "padding-top: 1em;"}">
     <Pancake.Chart {x1} {x2} {y1} {y2}>
         <!-- Title -->
         {#if title}
@@ -70,7 +70,7 @@
         position: absolute;
         width: 2em;
         left: -1em;
-        bottom: calc(var(--chart-bottom-padding) * -1);
+        bottom: calc(var(--chart-bottom-padding) * -1.11);
         font-family: sans-serif;
         text-align: center;
         font-size: var(--kana-size);
