@@ -79,20 +79,10 @@
         border-bottom: 2px dotted var(--pitch-line-color);
     }
     .upstep {
-        padding-right: 1px;
-        border-right: 1px dotted var(--pitch-line-color);
-    }
-    .upstep + .high {
-        border-left: 1px dotted var(--pitch-line-color);
-        padding-left: 1px;
+        border-right: 2px dotted var(--pitch-line-color);
     }
     .downstep {
-        padding-right: 1px;
-        border-right: 1px dotted var(--pitch-line-color);
-    }
-    .downstep + .low {
-        border-left: 1px dotted var(--pitch-line-color);
-        padding-left: 1px;
+        border-right: 2px dotted var(--pitch-line-color);
     }
     .particle {
         color: var(--particle-color);
