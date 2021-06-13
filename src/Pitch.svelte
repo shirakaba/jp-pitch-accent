@@ -23,7 +23,7 @@
 
         <!-- Kana -->
         <Pancake.Grid vertical count={x2} let:value>
-            <span class="x label">{points[value].mora}</span>
+            <span class:particle={points[value].isParticle} class="kana">{points[value].mora}</span>
         </Pancake.Grid>
 
 		<Pancake.Svg>
@@ -66,7 +66,7 @@
         top: calc(var(--chart-top-padding) * -1);
         left: calc(0em - var(--joint-outer-width) / 2);
     }
-    .x.label {
+    .kana {
         position: absolute;
         width: 2em;
         left: -1em;
@@ -74,8 +74,11 @@
         font-family: sans-serif;
         text-align: center;
         font-size: var(--kana-size);
+        color: var(--kana-color);
     }
-
+    .kana.particle {
+        color: var(--particle-color);
+    }
 	path.joint {
 		opacity: 1;
 		stroke-linejoin: round;
