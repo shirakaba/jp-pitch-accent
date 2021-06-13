@@ -7,7 +7,9 @@ export interface PitchPoint {
 
 export interface BinaryPoint {
     upstep?: true;
+    followsUpstep?: true;
     downstep?: true;
+    followsDownstep?: true;
     low: boolean;
     high: boolean;
     mora: string;
