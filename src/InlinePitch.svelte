@@ -74,25 +74,27 @@
         color: var(--kana-color);
     }
     .mora {
-        border: 1px dotted transparent;
+        border: 2px dotted transparent;
     }
     .high {
-        border-top: 1px dotted var(--pitch-line-color);
+        border-top: 2px dotted var(--pitch-line-color);
     }
     .low {
-        border-bottom: 1px dotted var(--pitch-line-color);
+        border-bottom: 2px dotted var(--pitch-line-color);
     }
     .upstep {
-        border-right: 1px dotted var(--pitch-line-color);
+        border-right: 2px dotted var(--pitch-line-color);
+        padding-left: 2px;
     }
     .followsUpstep {
-        border-left: 1px dotted var(--pitch-line-color);
+        padding-left: 4px;
     }
     .downstep {
-        border-right: 1px dotted var(--pitch-line-color);
+        padding-left: 2px;
+        border-right: 2px dotted var(--pitch-line-color);
     }
     .followsDownstep {
-        border-left: 1px dotted var(--pitch-line-color);
+        padding-left: 4px;
     }
     .particle {
         color: var(--particle-color);
