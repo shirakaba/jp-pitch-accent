@@ -7,32 +7,24 @@
     $: jointOuterWidth = mode === "chart-compact" ? "13px" : "20px";
     $: jointInnerWidth = mode === "chart-compact" ? "7px" : "14px";
     $: chartStrokeWidth = mode === "chart-compact" ? "3px" : "4px";
-    $: widthPerMora = mode === "chart-compact" ? 1.75 : 4;
+    $: widthPerMora = mode === "chart-compact" ? 2 : 6;
     
-    const titleIsDelegatedToSvg: boolean = false;
     export let title: string;
-    $: chartHeight = mode === "chart-compact" ? (titleIsDelegatedToSvg ? "7em" : "4.5em") : (titleIsDelegatedToSvg ? "150px" : "75px");
+    $: chartHeight = mode === "chart-compact" ? "3em" : "75px";
     export let word: string;
-    $: morae = word.replace(/\^|!|\|/g, "").length;
-    $: width = widthPerMora * morae;
 
     $: points = convertStringToPitchPoints(word);
 
     const myRed = "#AD2A20";
     const myBlack = "#252525";
     const myBlue = "#202AAD";
-    const myGrey = "rgba(20, 20, 20, 0.60)";
-
-    export let paddingTop = "8px";
 </script>
 
 {#if mode === "chart" || mode === "chart-compact"}
-    <tr class="pitchChartRow">
-        <td style="color: {myRed};">
-            {title}
-        </td>
+    <tr>
+        <td></td>
         <td>
-            <div class="pitchChartContainer" style="width: {width}em; height: {chartHeight}; padding-top: {paddingTop};">
+            <div class="pitchChartContainer" style="height: {chartHeight};">
                 <Pitch
                     --stroke-color={myBlack}
                     --stroke-width={chartStrokeWidth}
@@ -40,15 +32,24 @@
                     --joint-inner-width={jointInnerWidth}
                     --joint-outer-color="#252525"
                     --joint-inner-color="#FEFEF2"
-                    --title-color={myRed}
-                    --particle-color={myGrey}
-                    --kana-color={myBlack}
-                    --title-size="2em"
-                    --kana-size="1em"
-                    --gutter-size="1em"
                     {points}
                 />
             </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="color: {myRed};">
+            {title}
+        </td>
+        <td class="moraContainer">
+            {#each points as { mora, isParticle }}
+                <span
+                    class="mora"
+                    class:compact={mode === "chart-compact"}
+                    class:big={mode === "chart"}
+                    class:particle={isParticle}
+                >{mora}</span>
+            {/each}
         </td>
     </tr>
 {:else}
@@ -65,10 +66,27 @@
 {/if}
 
 <style>
-    .pitchChartRow {
-        vertical-align: bottom;
+    .moraContainer {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mora {
+        text-align: center;
+    }
+    .mora.compact {
+        width: 2em;
+    }
+    .mora.big {
+        width: 4em;
+    }
+    .mora.particle {
+        color: rgba(20, 20, 20, 0.60);
     }
     .pitchChartContainer {
         position: relative;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
     }
 </style>
