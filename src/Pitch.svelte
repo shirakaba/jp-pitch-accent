@@ -48,7 +48,7 @@
 <style>
     .chart {
         --chart-top-padding: calc(var(--gutter-size) + var(--title-size) + (var(--joint-outer-width) / 2));
-        --chart-bottom-padding: calc(var(--gutter-size) + var(--kana-size) + (var(--joint-outer-width) / 2));
+        --chart-bottom-padding: calc((var(--gutter-size) + var(--kana-size) + (var(--joint-outer-width) / 2)) - 0.5em);
         --chart-left-padding: calc(var(--gutter-size) + (var(--joint-outer-width) / 2));
         --chart-right-padding: var(--chart-left-padding);
         height: 100%;

@@ -22,6 +22,8 @@
     const myBlack = "#252525";
     const myBlue = "#202AAD";
     const myGrey = "rgba(20, 20, 20, 0.60)";
+
+    export let paddingTop = "8px";
 </script>
 
 {#if mode === "chart" || mode === "chart-compact"}
@@ -30,7 +32,7 @@
             {title}
         </td>
         <td>
-            <div class="pitchChartContainer" style="width: {width}em; height: {chartHeight};">
+            <div class="pitchChartContainer" style="width: {width}em; height: {chartHeight}; padding-top: {paddingTop};">
                 <Pitch
                     --stroke-color={myBlack}
                     --stroke-width={chartStrokeWidth}
