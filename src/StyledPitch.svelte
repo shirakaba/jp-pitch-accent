@@ -18,7 +18,8 @@
 
     $: points = convertStringToPitchPoints(word);
     $: sawtoothPoints = convertBinaryPointsToSawtoothPlot(convertStringToBinaryPoints(points));
-    $: sawtoothWidth = `${widthPerMora * points.length}em`;
+    $: sawtoothWidth = `${widthPerMora * points.length}`;
+    $: chartWidth = `calc(${widthPerMora * points.length}em)`;
 
     const myRed = "#AD2A20";
     const myBlack = "#252525";
@@ -29,7 +30,7 @@
     <tr class="chartRow">
         <td></td>
         <td>
-            <div class="pitchChartContainer" style="height: {chartHeight};">
+            <div class="pitchChartContainer" style="height: {chartHeight}; width: {chartWidth};">
                 <Pitch
                     --stroke-color={myBlack}
                     --stroke-width={chartStrokeWidth}
@@ -46,16 +47,18 @@
         <td style="color: {myRed};">
             {title}
         </td>
-        <td class="moraContainer">
-            {#each points as { mora, isParticle }}
-                <span
-                    class="mora"
-                    class:compact={mode === "chart-compact"}
-                    class:big={mode === "chart"}
-                    class:particle={isParticle}
-                >{mora}</span>
-            {/each}
-            <div class="sawtoothContainer" style="width: {sawtoothWidth};">
+        <td class="moraCell">
+            <div class="moraContainer" style="width: {sawtoothWidth}em;">
+                {#each points as { mora, isParticle }}
+                    <span
+                        class="mora"
+                        class:compact={mode === "chart-compact"}
+                        class:big={mode === "chart"}
+                        class:particle={isParticle}
+                    >{mora}</span>
+                {/each}
+            </div>
+            <div class="sawtoothContainer" style="width: {sawtoothWidth}em;">
                 <InlinePitchPancake
                     --stroke-width={sawtoothStrokeWidth}
                     --stroke-color={myBlack}
@@ -98,16 +101,21 @@
         margin-top: var(--row-margin);
     }
     .sawtoothContainer {
+        top: 0;
         position: absolute;
         height: 1.5em;
     }
+    .moraCell {
+        position: relative;
+    }
     .moraContainer {
-        display: flex;
+        /* display: flex;
         width: 100%;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-between; */
     }
     .mora {
+        display: inline-block;
         text-align: center;
     }
     .mora.compact {
@@ -121,7 +129,8 @@
     }
     .pitchChartContainer {
         position: relative;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
+        padding-left: 1em;
+        padding-right: 1em;
+        box-sizing: border-box;
     }
 </style>
