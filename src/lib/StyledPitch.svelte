@@ -11,8 +11,12 @@
     
     $: chartHeight = "3em";
     export let pattern: string;
-    export let texts: { kanji: string, kana: string }[] = [];
-    $: morae = texts.map(text => convertStringToPitchPoints(text.kana).map(p => p.mora));
+    export let texts: string[] = [];
+    $: textsParsed = texts.map(text => {
+        const [kanji, kana] = text.split("：");
+        return { kanji, kana };
+    });
+    $: morae = textsParsed.map(text => convertStringToPitchPoints(text.kana).map(p => p.mora));
 
     $: points = convertNumericPatternToNumericPoints(pattern);
     $: sawtoothPoints = convertBinaryPointsToSawtoothPlot(convertPitchPointsToBinaryPoints(points));
@@ -51,7 +55,7 @@
         <td colspan="3"></td>
     </tr>
 {/if}
-{#each texts as { kanji }, i}
+{#each textsParsed as { kanji }, i}
     <tr class="textRow">
         <td style="color: {myRed};">
             {kanji}
