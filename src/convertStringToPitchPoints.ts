@@ -1,4 +1,4 @@
-import type { PitchPoint } from "./PitchPoint";
+import type { PitchPoint, BinaryPoint, PancakePoint, SawtoothPoint } from "./PitchPoint";
 
 export function convertStringToPitchPoints(word: string): PitchPoint[] {
     let morae = "";
@@ -76,4 +76,95 @@ export function convertStringToPitchPoints(word: string): PitchPoint[] {
         mora = "";
     }
     return nextPoints;
+}
+
+export function convertStringToBinaryPoints(points: PitchPoint[]): BinaryPoint[] {
+    const binary: BinaryPoint[] = [];
+    for(let i = 0; i < points.length; i++){
+        const { y, mora, isParticle } = points[i];
+        
+        binary.push({
+            high: y === 1,
+            low: y === 0,
+            mora,
+            isParticle,
+        });
+
+        if(i === 0){
+            continue;
+        }
+
+        const { y: prevY } = points[i - 1];
+        if(y === 1 && prevY === 0){
+            binary[i - 1].upstep = true;
+            continue;
+        }
+        if(y === 0 && prevY === 1){
+            binary[i - 1].downstep = true;
+            continue;
+        }
+    }
+    return binary;
+}
+
+// // First point
+// { x: 0, y: 1 },
+// // Downstep
+// { x: 1, y: 1 },
+// { x: 1, y: 0 },
+// 
+// // Low
+// { x: 2, y: 0 },
+// 
+// // Upstep
+// { x: 3, y: 0 },
+// { x: 3, y: 1 },
+// 
+// // Downstep
+// { x: 4, y: 1 },
+// { x: 4, y: 0 },
+// 
+// // Low
+// { x: 5, y: 0 },//
+export function convertBinaryPointsToSawtoothPlot(points: BinaryPoint[]): SawtoothPoint[] {
+    const plot: PancakePoint[] = [];
+    for(let i = 0; i < points.length; i++){
+        const { low, high, upstep, downstep } = points[i];
+        const x = i;
+
+        if(i === 0){
+            plot.push({
+                x,
+                y: high ? 1 : 0,
+            });
+        }
+
+        if(downstep){
+            plot.push({
+                x: x + 1,
+                y: 1,
+            });
+            plot.push({
+                x: x + 1,
+                y: 0,
+            });
+        } else if(upstep){
+            plot.push({
+                x: x + 1,
+                y: 0,
+            });
+            plot.push({
+                x: x + 1,
+                y: 1,
+            });
+        } else {
+            plot.push({
+                x: x + 1,
+                y: high ? 1 : 0,
+            });
+        }
+    }
+    console.log(`points`, points);
+    console.log(`plot`, plot);
+    return plot;
 }

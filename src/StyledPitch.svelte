@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Pitch from "./Pitch.svelte";
 	import InlinePitch from "./InlinePitch.svelte";
-    import { convertStringToPitchPoints } from "./convertStringToPitchPoints";
+	import InlinePitchPancake from "./InlinePitchPancake.svelte";
+    import { convertBinaryPointsToSawtoothPlot, convertStringToBinaryPoints, convertStringToPitchPoints } from "./convertStringToPitchPoints";
 
-    export let mode: "inline"|"chart"|"chart-compact" = "chart-compact";
+    export let mode: "inline"|"chart"|"chart-compact" = "inline";
     $: jointOuterWidth = mode === "chart-compact" ? "13px" : "20px";
     $: jointInnerWidth = mode === "chart-compact" ? "7px" : "14px";
     $: chartStrokeWidth = mode === "chart-compact" ? "3px" : "4px";
@@ -12,8 +13,12 @@
     export let title: string;
     $: chartHeight = mode === "chart-compact" ? "3em" : "75px";
     export let word: string;
+    // TODO: accept extra prop: "extraMorae" or something, that follows the same pitch points yet with different morae.
 
     $: points = convertStringToPitchPoints(word);
+    $: sawtoothPoints = mode !== "inline" ? 
+        [] : 
+        convertBinaryPointsToSawtoothPlot(convertStringToBinaryPoints(points));
 
     const myRed = "#AD2A20";
     const myBlack = "#252525";
@@ -63,6 +68,13 @@
         {title}
         {points}
     />
+    <div class="pitchChartContainer" style="height: {chartHeight};">
+        <InlinePitchPancake
+            --stroke-width={chartStrokeWidth}
+            --stroke-color={myBlack}
+            points={sawtoothPoints}
+        />
+    </div>
 {/if}
 
 <style>

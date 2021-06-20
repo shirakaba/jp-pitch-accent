@@ -1,37 +1,10 @@
 <script lang="ts">
+    import { convertStringToBinaryPoints } from "./convertStringToPitchPoints";
     import type { PitchPoint, BinaryPoint } from "./PitchPoint";
 
     export let title: string = "";
     export let points: PitchPoint[] = [];
-    let binary: BinaryPoint[] = [];
-    $: {
-        let nextBinary: BinaryPoint[] = [];
-        for(let i = 0; i < points.length; i++){
-            const { y, mora, isParticle } = points[i];
-            
-            nextBinary.push({
-                high: y === 1,
-                low: y === 0,
-                mora,
-                isParticle,
-            });
-
-            if(i === 0){
-                continue;
-            }
-
-            const { y: prevY } = points[i - 1];
-            if(y === 1 && prevY === 0){
-                nextBinary[i - 1].upstep = true;
-                continue;
-            }
-            if(y === 0 && prevY === 1){
-                nextBinary[i - 1].downstep = true;
-                continue;
-            }
-        }
-        binary = nextBinary;
-    }
+    $: binary = convertStringToBinaryPoints(points);
 </script>
 
 <tr class="container">

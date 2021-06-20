@@ -1,6 +1,9 @@
-export interface PitchPoint {
+export interface PancakePoint {
     x: number;
-    y: number;
+    y: number;    
+}
+
+export interface PitchPoint extends PancakePoint {
     mora: string;
     isParticle: boolean;
 }
@@ -12,4 +15,8 @@ export interface BinaryPoint {
     high: boolean;
     mora: string;
     isParticle: boolean;
+}
+
+export interface SawtoothPoint extends PancakePoint {
+    
 }
