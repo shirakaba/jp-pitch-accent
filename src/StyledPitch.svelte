@@ -4,10 +4,11 @@
 	import InlinePitchPancake from "./InlinePitchPancake.svelte";
     import { convertBinaryPointsToSawtoothPlot, convertStringToBinaryPoints, convertStringToPitchPoints } from "./convertStringToPitchPoints";
 
-    export let mode: "inline"|"chart"|"chart-compact" = "inline";
+    export let mode: "inline"|"chart"|"chart-compact" = "chart-compact";
     $: jointOuterWidth = mode === "chart-compact" ? "13px" : "20px";
     $: jointInnerWidth = mode === "chart-compact" ? "7px" : "14px";
     $: chartStrokeWidth = mode === "chart-compact" ? "3px" : "4px";
+    const sawtoothStrokeWidth = "1px";
     $: widthPerMora = mode === "chart-compact" ? 2 : 6;
     
     export let title: string;
@@ -16,9 +17,8 @@
     // TODO: accept extra prop: "extraMorae" or something, that follows the same pitch points yet with different morae.
 
     $: points = convertStringToPitchPoints(word);
-    $: sawtoothPoints = mode !== "inline" ? 
-        [] : 
-        convertBinaryPointsToSawtoothPlot(convertStringToBinaryPoints(points));
+    $: sawtoothPoints = convertBinaryPointsToSawtoothPlot(convertStringToBinaryPoints(points));
+    $: sawtoothWidth = `${widthPerMora * points.length}em`;
 
     const myRed = "#AD2A20";
     const myBlack = "#252525";
@@ -26,7 +26,7 @@
 </script>
 
 {#if mode === "chart" || mode === "chart-compact"}
-    <tr>
+    <tr class="chartRow">
         <td></td>
         <td>
             <div class="pitchChartContainer" style="height: {chartHeight};">
@@ -42,7 +42,7 @@
             </div>
         </td>
     </tr>
-    <tr>
+    <tr class="textRow">
         <td style="color: {myRed};">
             {title}
         </td>
@@ -55,6 +55,13 @@
                     class:particle={isParticle}
                 >{mora}</span>
             {/each}
+            <div class="sawtoothContainer" style="width: {sawtoothWidth};">
+                <InlinePitchPancake
+                    --stroke-width={sawtoothStrokeWidth}
+                    --stroke-color={myBlack}
+                    points={sawtoothPoints}
+                />
+            </div>
         </td>
     </tr>
 {:else}
@@ -70,7 +77,7 @@
     />
     <div class="pitchChartContainer" style="height: {chartHeight};">
         <InlinePitchPancake
-            --stroke-width={chartStrokeWidth}
+            --stroke-width={sawtoothStrokeWidth}
             --stroke-color={myBlack}
             points={sawtoothPoints}
         />
@@ -78,6 +85,22 @@
 {/if}
 
 <style>
+    .chartRow {
+        --row-margin: 0.5em;
+    }
+    .chartRow > td {
+        padding-top: calc(var(--row-margin) * 4);
+    }
+    .textRow {
+        --row-margin: 0.5em;
+    }
+    .textRow > td {
+        margin-top: var(--row-margin);
+    }
+    .sawtoothContainer {
+        position: absolute;
+        height: 1.5em;
+    }
     .moraContainer {
         display: flex;
         width: 100%;

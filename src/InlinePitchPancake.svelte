@@ -7,7 +7,7 @@
     let y1 = 0;
     let y2 = 1;
     export let points: SawtoothPoint[] = [];
-    $: x2 = points.length - 1;
+    $: x2 = points[points.length - 1].x;
 </script>
 
 <div class="chart">
@@ -31,7 +31,7 @@
         text-align: left;
     }
 	path.trend {
-        /* stroke-dasharray: 10; */
+        stroke-dasharray: 4;
 		stroke: var(--stroke-color);
 		stroke-linejoin: round;
 		stroke-linecap: round;
