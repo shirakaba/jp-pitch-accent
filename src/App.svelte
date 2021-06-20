@@ -27,6 +27,8 @@
 		</li>
 	</ul>
 
+	<StyledPitch title="..." word="バ^ニラクリームフラペチ|ーノ!をバ^ニラクリームフラペチ|ーノ!をバ^ニラクリームフラペチ|ーノ!を"/>
+
 	<h3>Body parts</h3>
 
 	<StyledPitch title="目が痛い" word="^め|!がい^た|い"/>
