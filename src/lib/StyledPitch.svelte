@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Pitch from "./Pitch.svelte";
 	import InlinePitchPancake from "./InlinePitchPancake.svelte";
-    import { convertBinaryPointsToSawtoothPlot, convertStringToBinaryPoints, convertStringToPitchPoints } from "./convertStringToPitchPoints";
+    import { convertBinaryPointsToSawtoothPlot, convertNumericPatternToNumericPoints, convertPitchPointsToBinaryPoints, convertStringToPitchPoints } from "./convertStringToPitchPoints";
 
     $: jointOuterWidth = "13px";
     $: jointInnerWidth = "7px";
@@ -10,13 +10,12 @@
     const widthPerMora = 2;
     
     $: chartHeight = "3em";
-    export let word: string;
+    export let pattern: string;
     export let texts: { kanji: string, kana: string }[] = [];
     $: morae = texts.map(text => convertStringToPitchPoints(text.kana).map(p => p.mora));
-    // TODO: accept extra prop: "extraMorae" or something, that follows the same pitch points yet with different morae.
 
-    $: points = convertStringToPitchPoints(word);
-    $: sawtoothPoints = convertBinaryPointsToSawtoothPlot(convertStringToBinaryPoints(points));
+    $: points = convertNumericPatternToNumericPoints(pattern);
+    $: sawtoothPoints = convertBinaryPointsToSawtoothPlot(convertPitchPointsToBinaryPoints(points));
     $: sawtoothWidth = `${widthPerMora * points.length}`;
     $: chartWidth = `calc(${widthPerMora * points.length}em)`;
 

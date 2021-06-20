@@ -1,12 +1,12 @@
 <script lang="ts">
     import * as Pancake from "@sveltejs/pancake";
-    import type { PitchPoint, SawtoothPoint } from "./PitchPoint";
+    import type { PancakePoint } from "./PitchPoint";
 
     let x1 = 0;
     let x2 = 0;
     let y1 = 0;
     let y2 = 1;
-    export let points: SawtoothPoint[] = [];
+    export let points: PancakePoint[] = [];
     $: x2 = points[points.length - 1].x;
 </script>
 

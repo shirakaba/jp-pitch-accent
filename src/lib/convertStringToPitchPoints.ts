@@ -1,11 +1,11 @@
-import type { PitchPoint, BinaryPoint, PancakePoint, SawtoothPoint } from "./PitchPoint";
+import type { NumericPointWithMora, BinaryPoint, PancakePoint, NumericPoint } from "./PitchPoint";
 
-export function convertStringToPitchPoints(word: string): PitchPoint[] {
+export function convertStringToPitchPoints(word: string): NumericPointWithMora[] {
     let morae = "";
     let mora = "";
     let y: 0|1 = 0;
     let isParticle: boolean = false;
-    const nextPoints: PitchPoint[] = [];
+    const nextPoints: NumericPointWithMora[] = [];
     for(let i = 0; i < word.length; i++){
         const char = word[i];
 
@@ -78,15 +78,24 @@ export function convertStringToPitchPoints(word: string): PitchPoint[] {
     return nextPoints;
 }
 
-export function convertStringToBinaryPoints(points: PitchPoint[]): BinaryPoint[] {
+export function convertNumericPatternToNumericPoints(morae: string): NumericPoint[] {
+    return morae.split("").map((mora, i) => {
+        return {
+            x: i,
+            y: (mora === "0" || mora === "-") ? 0 : 1,
+            isParticle: mora === "-" || mora === "+",
+        };
+    })
+}
+
+export function convertPitchPointsToBinaryPoints(points: NumericPoint[]): BinaryPoint[] {
     const binary: BinaryPoint[] = [];
     for(let i = 0; i < points.length; i++){
-        const { y, mora, isParticle } = points[i];
+        const { y, isParticle } = points[i];
         
         binary.push({
             high: y === 1,
             low: y === 0,
-            mora,
             isParticle,
         });
 
@@ -107,26 +116,7 @@ export function convertStringToBinaryPoints(points: PitchPoint[]): BinaryPoint[]
     return binary;
 }
 
-// // First point
-// { x: 0, y: 1 },
-// // Downstep
-// { x: 1, y: 1 },
-// { x: 1, y: 0 },
-// 
-// // Low
-// { x: 2, y: 0 },
-// 
-// // Upstep
-// { x: 3, y: 0 },
-// { x: 3, y: 1 },
-// 
-// // Downstep
-// { x: 4, y: 1 },
-// { x: 4, y: 0 },
-// 
-// // Low
-// { x: 5, y: 0 },//
-export function convertBinaryPointsToSawtoothPlot(points: BinaryPoint[]): SawtoothPoint[] {
+export function convertBinaryPointsToSawtoothPlot(points: BinaryPoint[]): PancakePoint[] {
     const plot: PancakePoint[] = [];
     for(let i = 0; i < points.length; i++){
         const { low, high, upstep, downstep } = points[i];

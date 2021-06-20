@@ -1,12 +1,12 @@
 <script lang="ts">
     import * as Pancake from "@sveltejs/pancake";
-    import type { PitchPoint } from "./PitchPoint";
+    import type { NumericPoint } from "./PitchPoint";
 
     let x1 = 0;
     let x2 = 0;
     let y1 = 0;
     let y2 = 1;
-    export let points: PitchPoint[] = [];
+    export let points: NumericPoint[] = [];
     $: pointsOfWhichParticles = points.filter(p => p.isParticle);
     $: x2 = points.length - 1;
 </script>

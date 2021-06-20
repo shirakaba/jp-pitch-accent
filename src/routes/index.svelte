@@ -5,7 +5,7 @@
 <main>
 	<h1>1-4 mora nouns</h1>
 
-	<p>Notes from Dogen's <strong>Japanese Phonetics Episode 8</strong>. <a href="https://www.patreon.com/dogen/">Support him on Patreon</a> to access his video lessons and hear native recordings and full explanations!</p>
+	<p>Notes from Dogen's <strong>Japanese Phonetics Episode 8</strong>. <a href="https://www.patreon.com/dogen/">Support him on Patreon</a> to access his video lessons and hear native recordings and full explanations</p>
 
 	<h2>Contents</h2>
 
@@ -27,23 +27,23 @@
 		</li>
 	</ul>
 
-	<!-- <StyledPitch title="..." word="バ^ニラクリームフラペチ|ーノ!をバ^ニラクリームフラペチ|ーノ!をバ^ニラクリームフラペチ|ーノ!を"/> -->
+	<!-- <StyledPitch title="..." pattern="バニラクリームフラペチーノをバニラクリームフラペチーノをバニラクリームフラペチーノを"/> -->
 
 	<h3>Body parts</h3>
 
 	<table>
 		<StyledPitch
-			word="^め|!がい^た|い"
+			pattern="1-010"
 			texts={[
-				{ kanji: "目が痛い", kana: "^め|!がい^た|い" },
-				{ kanji: "手が痛い", kana: "^て|!がい^た|い" },
-				{ kanji: "歯が痛い", kana: "^は|!がい^た|い" },
+				{ kanji: "目が痛い", kana: "めがいたい" },
+				{ kanji: "手が痛い", kana: "てがいたい" },
+				{ kanji: "歯が痛い", kana: "はがいたい" },
 			]}
 		/>
 		<StyledPitch
-			word="い^!がいた|い"
+			pattern="0+110"
 			texts={[
-				{ kanji: "胃が痛い", kana: "い^!がいた|い" },
+				{ kanji: "胃が痛い", kana: "いがいたい" },
 			]}
 		/>
 	</table>
@@ -51,15 +51,15 @@
 	
 	<table>
 		<StyledPitch
-			word="^ひ|!がつ^よ|い"
+			pattern="1-010"
 			texts={[
-				{ kanji: "火が強い", kana: "^ひ|!がつ^よ|い" },
+				{ kanji: "火が強い", kana: "ひがつよい" },
 			]}
 		/>
 		<StyledPitch
-			word="ひ^!がで|る"
+			pattern="0+10"
 			texts={[
-				{ kanji: "日が出る", kana: "ひ^!がで|る" },
+				{ kanji: "日が出る", kana: "ひがでる" },
 			]}
 		/>
 	</table>
@@ -67,15 +67,15 @@
 	
 	<table>
 		<StyledPitch
-			word="^き!|がた^か|い"
+			pattern="1-010"
 			texts={[
-				{ kanji: "木が高い", kana: "^き!|がた^か|い" },
+				{ kanji: "木が高い", kana: "きがたかい" },
 			]}
 		/>
 		<StyledPitch
-			word="き^!がなが|い"
+			pattern="0+110"
 			texts={[
-				{ kanji: "気が長い", kana: "き^!がなが|い" },
+				{ kanji: "気が長い", kana: "きがながい" },
 			]}
 		/>
 	</table>
@@ -84,14 +84,14 @@
 
 	<table>
 		<StyledPitch
-			word="^ど|こ!が"
+			pattern="10-"
 			texts={[
-				{ kanji: "何処が", kana: "^ど|こ!が" },
-				{ kanji: "どれが", kana: "^ど|れ!が" },
-				{ kanji: "どうか", kana: "^ど|う!か" },
-				{ kanji: "何が", kana: "^な|に!が" },
-				{ kanji: "何故か", kana: "^な|ぜ!か" },
-				{ kanji: "誰が", kana: "^だ|れ!が" },
+				{ kanji: "何処が", kana: "どこが" },
+				{ kanji: "どれが", kana: "どれが" },
+				{ kanji: "どうか", kana: "どうか" },
+				{ kanji: "何が", kana: "なにが" },
+				{ kanji: "何故か", kana: "なぜか" },
+				{ kanji: "誰が", kana: "だれが" },
 			]}
 		/>
 	</table>
@@ -103,16 +103,16 @@
 
 	<table>
 		<StyledPitch
-			word="こ^のひ"
+			pattern="011"
 			texts={[
-				{ kanji: "この日", kana: "こ^のひ" },
+				{ kanji: "この日", kana: "このひ" },
 			]}
 		/>
 		<StyledPitch
-			word="こ^れ!は"
+			pattern="01+"
 			texts={[
-				{ kanji: "これは", kana: "こ^れ!は" },
-				{ kanji: "ここの", kana: "こ^こ!の" },
+				{ kanji: "これは", kana: "これは" },
+				{ kanji: "ここの", kana: "ここの" },
 			]}
 		/>
 	</table>
@@ -124,15 +124,15 @@
 	
 	<table>
 		<StyledPitch
-			word="か^み|!が"
+			pattern="01-"
 			texts={[
-				{ kanji: "髪が", kana: "か^み|!が" },
-				{ kanji: "耳が", kana: "み^み|!が" },
-				{ kanji: "胸が", kana: "む^ね|!が" },
-				{ kanji: "腹が", kana: "は^ら|!が" },
-				{ kanji: "腕が", kana: "う^で|!が" },
-				{ kanji: "指が", kana: "ゆ^び|!が" },
-				{ kanji: "足が", kana: "あ^し|!が" },
+				{ kanji: "髪が", kana: "かみが" },
+				{ kanji: "耳が", kana: "みみが" },
+				{ kanji: "胸が", kana: "むねが" },
+				{ kanji: "腹が", kana: "はらが" },
+				{ kanji: "腕が", kana: "うでが" },
+				{ kanji: "指が", kana: "ゆびが" },
+				{ kanji: "足が", kana: "あしが" },
 			]}
 		/>
 	</table>
@@ -141,18 +141,18 @@
 	
 	<table>
 		<StyledPitch
-			word="く^ち!が"
+			pattern="01+"
 			texts={[
-				{ kanji: "口が", kana: "く^ち!が" },
-				{ kanji: "鼻が", kana: "は^な!が" },
-				{ kanji: "首が", kana: "く^び!が" },
+				{ kanji: "口が", kana: "くちが" },
+				{ kanji: "鼻が", kana: "はなが" },
+				{ kanji: "首が", kana: "くびが" },
 			]}
 		/>
 		<StyledPitch
-			word="^か|た!が"
+			pattern="10-"
 			texts={[
-				{ kanji: "肩が", kana: "^か|た!が" },
-				{ kanji: "喉が", kana: "^の|ど!が" },
+				{ kanji: "肩が", kana: "かたが" },
+				{ kanji: "喉が", kana: "のどが" },
 			]}
 		/>
 	</table>
@@ -164,15 +164,15 @@
 	
 	<table>		
 		<StyledPitch
-			word="に^ほ|ん!が"
+			pattern="010-"
 			texts={[
-				{ kanji: "日本が", kana: "に^ほ|ん!が" },
-				{ kanji: "卵が", kana: "た^ま|ご!が" },
-				{ kanji: "心が", kana: "こ^こ|ろ!が" },
-				{ kanji: "お箸が", kana: "お^は|し!が" },
-				{ kanji: "お菓子が", kana: "お^か|し!が" },
-				{ kanji: "匂いが", kana: "に^お|い!が" },
-				{ kanji: "貴方が", kana: "あ^な|た!が" },
+				{ kanji: "日本が", kana: "にほんが" },
+				{ kanji: "卵が", kana: "たまごが" },
+				{ kanji: "心が", kana: "こころが" },
+				{ kanji: "お箸が", kana: "おはしが" },
+				{ kanji: "お菓子が", kana: "おかしが" },
+				{ kanji: "匂いが", kana: "においが" },
+				{ kanji: "貴方が", kana: "あなたが" },
 			]}
 		/>
 	</table>
@@ -181,12 +181,12 @@
 	
 	<table>
 		<StyledPitch
-			word="こ^とば|!が"
+			pattern="011-"
 			texts={[
-				{ kanji: "言葉が", kana: "こ^とば|!が" },
-				{ kanji: "男が", kana: "お^とこ|!が" },
-				{ kanji: "女が", kana: "お^んな|!が" },
-				{ kanji: "皆んなが", kana: "み^んな|!が" },
+				{ kanji: "言葉が", kana: "ことばが" },
+				{ kanji: "男が", kana: "おとこが" },
+				{ kanji: "女が", kana: "おんなが" },
+				{ kanji: "皆んなが", kana: "みんなが" },
 			]}
 		/>
 	</table>
@@ -195,19 +195,19 @@
 	
 	<table>
 		<StyledPitch
-			word="^ご|ぜん!は"
+			pattern="100-"
 			texts={[
-				{ kanji: "午前は", kana: "^ご|ぜん!は" },
-				{ kanji: "家族は", kana: "^か|ぞく!は" },
-				{ kanji: "眼鏡は", kana: "^め|がね!は" },
-				{ kanji: "景色は", kana: "^け|しき!は" },
-				{ kanji: "荷物は", kana: "^に|もつ!は" },
-				{ kanji: "電気は", kana: "^で|んき!は" },
-				{ kanji: "天気は", kana: "^て|んき!は" },
-				{ kanji: "元気な", kana: "^げ|んき!な" },
-				{ kanji: "どなたの", kana: "^ど|なた!の" },
-				{ kanji: "どんな", kana: "^ど|んな!の" },
-				{ kanji: "どちらの", kana: "^ど|ちら!の" },
+				{ kanji: "午前は", kana: "ごぜんは" },
+				{ kanji: "家族は", kana: "かぞくは" },
+				{ kanji: "眼鏡は", kana: "めがねは" },
+				{ kanji: "景色は", kana: "けしきは" },
+				{ kanji: "荷物は", kana: "にもつは" },
+				{ kanji: "電気は", kana: "でんきは" },
+				{ kanji: "天気は", kana: "てんきは" },
+				{ kanji: "元気な", kana: "げんきな" },
+				{ kanji: "どなたの", kana: "どなたの" },
+				{ kanji: "どんな", kana: "どんなの" },
+				{ kanji: "どちらの", kana: "どちらの" },
 			]}
 		/>
 	</table>
@@ -219,16 +219,16 @@
 	
 	<table>
 		<StyledPitch
-			word="が^っこう!が"
+			pattern="0111+"
 			texts={[
-				{ kanji: "学校が", kana: "が^っこう!が" },
-				{ kanji: "銀行が", kana: "ぎ^んこう!が" },
-				{ kanji: "最低の", kana: "さ^いてい!の" },
-				{ kanji: "最悪の", kana: "さ^いあく!の" },
-				{ kanji: "最高の", kana: "さ^いこう!の" },
-				{ kanji: "平板の", kana: "へ^いばん!の" },
-				{ kanji: "勉強の", kana: "べ^んきょう!の" },
-				{ kanji: "心配の", kana: "し^んぱい!の" },
+				{ kanji: "学校が", kana: "がっこうが" },
+				{ kanji: "銀行が", kana: "ぎんこうが" },
+				{ kanji: "最低の", kana: "さいていの" },
+				{ kanji: "最悪の", kana: "さいあくの" },
+				{ kanji: "最高の", kana: "さいこうの" },
+				{ kanji: "平板の", kana: "へいばんの" },
+				{ kanji: "勉強の", kana: "べんきょうの" },
+				{ kanji: "心配の", kana: "しんぱいの" },
 			]}
 		/>
 	</table>
@@ -237,13 +237,13 @@
 	
 	<table>
 		<StyledPitch
-			word="^お|んがく!は"
+			pattern="1000-"
 			texts={[
-				{ kanji: "音楽は", kana: "^お|んがく!は" },
-				{ kanji: "兄弟は", kana: "^きょ|うだい!は" },
-				{ kanji: "挨拶は", kana: "^あ|いさつ!は" },
-				{ kanji: "迷惑な", kana: "^め|いわく!な" },
-				{ kanji: "玄関は", kana: "^げ|んかん!は" },
+				{ kanji: "音楽は", kana: "おんがくは" },
+				{ kanji: "兄弟は", kana: "きょうだいは" },
+				{ kanji: "挨拶は", kana: "あいさつは" },
+				{ kanji: "迷惑な", kana: "めいわくな" },
+				{ kanji: "玄関は", kana: "げんかんは" },
 			]}
 		/>
 	</table>
@@ -252,26 +252,26 @@
 	
 	<table>
 		<StyledPitch
-			word="せ^んせ|い!は"
+			pattern="0110-"
 			texts={[
-				{ kanji: "先生は", kana: "せ^んせ|い!は" },
-				{ kanji: "コーヒーは", kana: "コ^ーヒ|ー!は" },
-				{ kanji: "弁当は", kana: "べ^んと|う!は" },
-				{ kanji: "残念な", kana: "ざ^んね|ん!な" },
-				{ kanji: "半分は", kana: "は^んぶ|ん!は" },
-				{ kanji: "案内は", kana: "は^んな|い!は" },
+				{ kanji: "先生は", kana: "せんせいは" },
+				{ kanji: "コーヒーは", kana: "コーヒーは" },
+				{ kanji: "弁当は", kana: "べんとうは" },
+				{ kanji: "残念な", kana: "ざんねんな" },
+				{ kanji: "半分は", kana: "はんぶんは" },
+				{ kanji: "案内は", kana: "はんないは" },
 			]}
 		/>
 
 		<StyledPitch
-			word="ど^よ|うび!の"
+			pattern="0100-"
 			texts={[
-				{ kanji: "土曜日の", kana: "ど^よ|うび!の" },
-				{ kanji: "火曜日の", kana: "か^よ|うび!の" },
-				{ kanji: "皆さんは", kana: "み^な|さん!は" },
-				{ kanji: "アパートは", kana: "ア^パ|ート!は" },
-				{ kanji: "失礼な", kana: "し^つ|れい!な" },
-				{ kanji: "飲み物は", kana: "の^み|もの!は" },
+				{ kanji: "土曜日の", kana: "どようびの" },
+				{ kanji: "火曜日の", kana: "かようびの" },
+				{ kanji: "皆さんは", kana: "みなさんは" },
+				{ kanji: "アパートは", kana: "アパートは" },
+				{ kanji: "失礼な", kana: "しつれいな" },
+				{ kanji: "飲み物は", kana: "のみものは" },
 			]}
 		/>
 	</table>
@@ -280,10 +280,10 @@
 	
 	<table>
 		<StyledPitch
-			word="お^とうと|!が"
+			pattern="0111-"
 			texts={[
-				{ kanji: "弟が", kana: "お^とうと|!が" },
-				{ kanji: "妹が", kana: "い^もうと|!が" },
+				{ kanji: "弟が", kana: "おとうとが" },
+				{ kanji: "妹が", kana: "いもうとが" },
 			]}
 		/>
 	</table>
