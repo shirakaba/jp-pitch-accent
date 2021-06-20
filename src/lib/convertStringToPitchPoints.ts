@@ -78,14 +78,59 @@ export function convertStringToPitchPoints(word: string): NumericPointWithMora[]
     return nextPoints;
 }
 
-export function convertNumericPatternToNumericPoints(morae: string): NumericPoint[] {
-    return morae.split("").map((mora, i) => {
+/**
+ * おとうと: 4 (尾高). As the downstep occurs on the final mora, the particle attaches low.
+ * かみ: 2 (尾高). As the downstep occurs on the final mora, the particle attaches low.
+ * @param downstep the (one-indexed) mora on which the downstep begins. 0 indicates no downstep (平板). 
+ * @param morae the number of morae in the word (not including any particles).
+ */
+export function convertDownstepNumberToNumericPoints(downstep: number, morae: number): NumericPoint[] {
+    const points: NumericPoint[] = [];
+    for(let i = 0; i < morae; i++){
+        if(downstep === 0){
+            points.push({
+                x: i,
+                y: i === 0 ? 0 : 1,
+                isParticle: false,
+            });
+        } else {
+            points.push({
+                x: i,
+                y: i === 0 ?
+                    (downstep === 1 ? 1 : 0) :
+                    i < downstep ?
+                        1 :
+                        0,
+                isParticle: false,
+            });
+        }
+    }
+
+    points.push({
+        x: morae,
+        y: downstep === 0 ? 1 : 0,
+        isParticle: true,
+    });
+
+    return points;
+}
+
+
+export function convertNumericPatternToNumericPoints(pattern: string): NumericPoint[] {
+    const splits = pattern.split("/");
+
+    if(splits.length === 2){
+        const [downstep, morae] = splits;
+        return convertDownstepNumberToNumericPoints(parseInt(downstep), parseInt(morae));
+    }
+
+    return pattern.split("").map((mora, i) => {
         return {
             x: i,
             y: (mora === "0" || mora === "-") ? 0 : 1,
             isParticle: mora === "-" || mora === "+",
         };
-    })
+    });
 }
 
 export function convertPitchPointsToBinaryPoints(points: NumericPoint[]): BinaryPoint[] {

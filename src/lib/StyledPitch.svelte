@@ -10,7 +10,7 @@
     const widthPerMora = 2;
     
     $: chartHeight = "3em";
-    export let pattern: string;
+    export let pattern: string|undefined;
     export let texts: string[] = [];
     $: textsParsed = texts.map(text => {
         const [kanji, kana] = text.split("：");
