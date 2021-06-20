@@ -164,7 +164,5 @@ export function convertBinaryPointsToSawtoothPlot(points: BinaryPoint[]): Sawtoo
             });
         }
     }
-    console.log(`points`, points);
-    console.log(`plot`, plot);
     return plot;
 }
