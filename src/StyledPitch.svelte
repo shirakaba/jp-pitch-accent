@@ -30,7 +30,10 @@
     <tr class="chartRow">
         <td></td>
         <td>
-            <div class="pitchChartContainer" style="height: {chartHeight}; width: {chartWidth};">
+            <div
+                class="pitchChartContainer"
+                style="height: {chartHeight}; width: {chartWidth}; padding-left: calc(1em - {jointOuterWidth} / 2); padding-right: calc(1em - {jointOuterWidth} / 2)"
+            >
                 <Pitch
                     --stroke-color={myBlack}
                     --stroke-width={chartStrokeWidth}
@@ -129,8 +132,6 @@
     }
     .pitchChartContainer {
         position: relative;
-        padding-left: 1em;
-        padding-right: 1em;
         box-sizing: border-box;
     }
 </style>

@@ -36,8 +36,7 @@
     .chart {
         height: 100%;
         box-sizing: border-box;
-        padding-top: calc(var(--joint-outer-width) / 2);
-        padding-bottom: calc(var(--joint-outer-width) / 2);
+        padding: calc(var(--joint-outer-width) / 2);
     }
     :global(.chart > div) {
         text-align: left;
