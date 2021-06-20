@@ -9,9 +9,10 @@
     const sawtoothStrokeWidth = "1px";
     const widthPerMora = 2;
     
-    export let title: string;
     $: chartHeight = "3em";
     export let word: string;
+    export let texts: { kanji: string, kana: string }[] = [];
+    $: morae = texts.map(text => convertStringToPitchPoints(text.kana).map(p => p.mora));
     // TODO: accept extra prop: "extraMorae" or something, that follows the same pitch points yet with different morae.
 
     $: points = convertStringToPitchPoints(word);
@@ -43,28 +44,30 @@
         </div>
     </td>
 </tr>
-<tr class="textRow">
-    <td style="color: {myRed};">
-        {title}
-    </td>
-    <td class="moraCell">
-        <div class="moraContainer" style="width: {sawtoothWidth}em;">
-            {#each points as { mora, isParticle }}
-                <span
-                    class="mora compact"
-                    class:particle={isParticle}
-                >{mora}</span>
-            {/each}
-        </div>
-        <div class="sawtoothContainer" style="width: {sawtoothWidth}em;">
-            <InlinePitchPancake
-                --stroke-width={sawtoothStrokeWidth}
-                --stroke-color={myBlack}
-                points={sawtoothPoints}
-            />
-        </div>
-    </td>
-</tr>
+{#each texts as { kanji }, i}
+    <tr class="textRow">
+        <td style="color: {myRed};">
+            {kanji}
+        </td>
+        <td class="moraCell">
+            <div class="moraContainer" style="width: {sawtoothWidth}em;">
+                {#each points as { isParticle }, j }
+                    <span
+                        class="mora compact"
+                        class:particle={isParticle}
+                    >{morae[i][j]}</span>
+                {/each}
+            </div>
+            <div class="sawtoothContainer" style="width: {sawtoothWidth}em;">
+                <InlinePitchPancake
+                    --stroke-width={sawtoothStrokeWidth}
+                    --stroke-color={myBlack}
+                    points={sawtoothPoints}
+                />
+            </div>
+        </td>
+    </tr>
+{/each}
 
 <style>
     .sawtoothContainer {
