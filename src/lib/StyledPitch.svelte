@@ -91,20 +91,8 @@
 {/if}
 
 <style>
-    .chartRow {
-        --row-margin: 0.5em;
-    }
-    .chartRow > td {
-        padding-top: calc(var(--row-margin) * 4);
-    }
-    .textRow {
-        --row-margin: 0.5em;
-    }
-    .textRow > td {
-        padding-top: var(--row-margin);
-    }
     .sawtoothContainer {
-        top: var(--row-margin);
+        top: 0;
         position: absolute;
         height: 1.5em;
     }
