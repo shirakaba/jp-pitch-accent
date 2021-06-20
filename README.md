@@ -1,36 +1,38 @@
-# jp-pitch-accent
+# create-svelte
 
-A demo of how to use Svelte components (particularly Rich Harris's brilliant [@sveltejs/pancake](https://github.com/Rich-Harris/pancake) graphing library) to take Japanese pitch accent notes. Please do check out [Dōgen](https://www.patreon.com/dogen) on Patreon, as its his exceptional lessons I'm learning from!
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
-It's not my immediate plan to refactor this into an installable library, but if there is interest, I may consider it.
+## Creating a project
 
-These pitch accent graphs, once rendered, do not depend on JavaScript to run. So you could theoretically copy the generated SVG and **use them in Anki flashcards** – just be sure to fill in the necessary CSS variables.
-
-## Example
-
-![github_resources/example.png](github_resources/example.png)
-
-## Get started
-
-Install the dependencies...
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-cd svelte-app
-npm install
+# create a new project in the current directory
+npm init svelte@next
+
+# create a new project in my-app
+npm init svelte@next my-app
 ```
 
-...then start [Rollup](https://rollupjs.org):
+> Note: the `@next` is temporary
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+## Building
 
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
+Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
+```bash
+npm run build
+```
 
-## Licence
-
-[MIT licensed](LICENCE).
+> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.

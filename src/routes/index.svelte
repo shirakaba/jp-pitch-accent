@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StyledPitch from "./StyledPitch.svelte";
+	import StyledPitch from "../lib/StyledPitch.svelte";
 </script>
 
 <main>
