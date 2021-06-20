@@ -101,10 +101,10 @@
         --row-margin: 0.5em;
     }
     .textRow > td {
-        margin-top: var(--row-margin);
+        padding-top: var(--row-margin);
     }
     .sawtoothContainer {
-        top: 0;
+        top: var(--row-margin);
         position: absolute;
         height: 1.5em;
     }
