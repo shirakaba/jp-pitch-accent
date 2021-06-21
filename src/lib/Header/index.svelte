@@ -5,22 +5,18 @@
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://github.com/shirakaba/jp-pitch-accent">
-			<img src={githubLogo} alt="GitHub" />
-		</a>
-		<a href="https://twitter.com/LinguaBrowse">
-			<img src={twitterLogo} alt="Twitter" />
-		</a>
-	</div>
-
-	<div></div>
-
 	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
 		<ul>
+			<li>
+				<a href="https://github.com/shirakaba/jp-pitch-accent">
+					<img class="icon" src={githubLogo} alt="GitHub" />
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/LinguaBrowse">
+					<img class="icon" src={twitterLogo} alt="Twitter" />
+				</a>
+			</li>
 			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">About</a></li>
 			<li class:active={$page.path === '/nouns-1-mora'}><a sveltekit:prefetch href="/nouns-1-mora">1-mora nouns</a></li>
 			<li class:active={$page.path === '/nouns-2-mora'}><a sveltekit:prefetch href="/nouns-2-mora">2-mora nouns</a></li>
@@ -28,14 +24,7 @@
 			<li class:active={$page.path === '/nouns-4-mora'}><a sveltekit:prefetch href="/nouns-4-mora">4-mora nouns</a></li>
 			<!-- <li class:active={$page.path === '/nouns-many-mora'}><a sveltekit:prefetch href="/nouns-many-mora">many-mora nouns</a></li> -->
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
-	</div>
 </header>
 
 <style>
@@ -43,41 +32,15 @@
 		display: flex;
 		justify-content: space-between;
 	}
-
-	.corner {
-		display: flex;
-		width: 6em;
+	.icon {
+		width: 3em;
 		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
 	}
 
 	nav {
-		display: flex;
 		justify-content: center;
 		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
+		max-width: 100%;
 	}
 
 	ul {
@@ -86,11 +49,13 @@
 		margin: 0;
 		height: 3em;
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
 		list-style: none;
 		background: var(--background);
 		background-size: contain;
+		overflow-x: scroll;
+		max-width: 100%;
 	}
 
 	li {
