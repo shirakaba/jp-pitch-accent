@@ -16,14 +16,14 @@
 </script>
 
 <svelte:head>
-	<title>2-morae nouns</title>
+	<title>3-mora nouns</title>
 </svelte:head>
 
 <div class="content">
-	<h2 id="3-mora-nouns">3-mora nouns</h2>
+	<h1 id="3-mora-nouns">3-mora nouns</h1>
 	
 	<p>Can be all types, however only ~10% are 中高, with another ~10% 尾高.</p>
-	<h3>Commonly used 中高</h3>
+	<h2>Commonly used 中高</h2>
 	
 	<StyledPitch
 		pattern="2/3"
@@ -38,7 +38,7 @@
 		]}
 	/>
 	
-	<h3>Commonly used 尾高</h3>
+	<h2>Commonly used 尾高</h2>
 	
 	<StyledPitch
 		pattern="3/3"
@@ -50,7 +50,7 @@
 		]}
 	/>
 	
-	<h3>Commonly used 頭高</h3>
+	<h2>Commonly used 頭高</h2>
 	
 	<StyledPitch
 		pattern="1/3"
@@ -77,15 +77,5 @@
 		width: 100%;
 		max-width: var(--column-width);
 		margin: var(--column-margin-top) auto 0 auto;
-	}
-
-	h1 {
-		text-align: center;
-		color: #252525;
-		text-transform: uppercase;
-	}
-
-	h2 {
-		text-transform: uppercase;
 	}
 </style>

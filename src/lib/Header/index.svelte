@@ -17,7 +17,8 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">1-mora nouns</a></li>
+			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">About</a></li>
+			<li class:active={$page.path === '/nouns-1-mora'}><a sveltekit:prefetch href="/nouns-1-mora">1-mora nouns</a></li>
 			<li class:active={$page.path === '/nouns-2-mora'}><a sveltekit:prefetch href="/nouns-2-mora">2-mora nouns</a></li>
 			<li class:active={$page.path === '/nouns-3-mora'}><a sveltekit:prefetch href="/nouns-3-mora">3-mora nouns</a></li>
 			<li class:active={$page.path === '/nouns-4-mora'}><a sveltekit:prefetch href="/nouns-4-mora">4-mora nouns</a></li>

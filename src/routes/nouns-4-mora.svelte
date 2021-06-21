@@ -16,11 +16,11 @@
 </script>
 
 <svelte:head>
-	<title>2-morae nouns</title>
+	<title>4-mora nouns</title>
 </svelte:head>
 
 <div class="content">
-	<h2 id="4-mora-nouns">4-mora nouns</h2>
+	<h1 id="4-mora-nouns">4-mora nouns</h1>
 	<p>Most are 平板, as are the overwhelming majority of 4-morae, 2-kanji nouns (and な-adjectives).</p>
 	
 	<StyledPitch
@@ -92,15 +92,5 @@
 		width: 100%;
 		max-width: var(--column-width);
 		margin: var(--column-margin-top) auto 0 auto;
-	}
-
-	h1 {
-		text-align: center;
-		color: #252525;
-		text-transform: uppercase;
-	}
-
-	h2 {
-		text-transform: uppercase;
 	}
 </style>

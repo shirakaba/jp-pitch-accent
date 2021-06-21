@@ -20,9 +20,9 @@
 </svelte:head>
 
 <div class="content">
-	<h2 id="2-mora-nouns">2-mora nouns</h2>
+	<h1 id="2-mora-nouns">2-mora nouns</h1>
 	
-	<h3>Object pronouns and location adverbs</h3>
+	<h2>Object pronouns and location adverbs</h2>
 	
 	<p>These are mostly 平板.</p>
 
@@ -41,7 +41,7 @@
 	/>
 
 	
-	<h3>Body parts</h3>
+	<h2>Body parts</h2>
 	
 	<p>These are mostly 尾高.</p>
 	
@@ -82,21 +82,5 @@
 		width: 100%;
 		max-width: var(--column-width);
 		margin: var(--column-margin-top) auto 0 auto;
-	}
-
-	main {
-		padding: 1em;
-		max-width: 640px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		text-align: center;
-		color: #252525;
-		text-transform: uppercase;
-	}
-
-	h2 {
-		text-transform: uppercase;
 	}
 </style>
