@@ -23,68 +23,78 @@
 	<h1 id="4-mora-nouns">4-mora nouns</h1>
 	<p>Most are 平板, as are the overwhelming majority of 4-morae, 2-kanji nouns (and な-adjectives).</p>
 	
-	<StyledPitch
-		pattern="0/4"
-		texts={[
-			"学校が：がっこうが",
-			"銀行が：ぎんこうが",
-			"最低の：さいていの",
-			"最悪の：さいあくの",
-			"最高の：さいこうの",
-			"平板の：へいばんの",
-			"勉強の：べんきょうの",
-			"心配の：しんぱいの",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="0/4"
+			texts={[
+				"学校が：がっこうが",
+				"銀行が：ぎんこうが",
+				"最低の：さいていの",
+				"最悪の：さいあくの",
+				"最高の：さいこうの",
+				"平板の：へいばんの",
+				"勉強の：べんきょうの",
+				"心配の：しんぱいの",
+			]}
+		/>
+	</table>
 	
 	<p>Notable exceptions in the 頭高 family:</p>
 	
-	<StyledPitch
-		pattern="1/4"
-		texts={[
-			"音楽は：おんがくは",
-			"兄弟は：きょうだいは",
-			"挨拶は：あいさつは",
-			"迷惑な：めいわくな",
-			"玄関は：げんかんは",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="1/4"
+			texts={[
+				"音楽は：おんがくは",
+				"兄弟は：きょうだいは",
+				"挨拶は：あいさつは",
+				"迷惑な：めいわくな",
+				"玄関は：げんかんは",
+			]}
+		/>
+	</table>
 	
 	<p>Notable exceptions in the 中高 family:</p>
 	
-	<StyledPitch
-		pattern="3/4"
-		texts={[
-			"先生は：せんせいは",
-			"コーヒーは：コーヒーは",
-			"弁当は：べんとうは",
-			"残念な：ざんねんな",
-			"半分は：はんぶんは",
-			"案内は：はんないは",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="3/4"
+			texts={[
+				"先生は：せんせいは",
+				"コーヒーは：コーヒーは",
+				"弁当は：べんとうは",
+				"残念な：ざんねんな",
+				"半分は：はんぶんは",
+				"案内は：はんないは",
+			]}
+		/>
+	</table>
 
-	<StyledPitch
-		pattern="2/4"
-		texts={[
-			"土曜日の：どようびの",
-			"火曜日の：かようびの",
-			"皆さんは：みなさんは",
-			"アパートは：アパートは",
-			"失礼な：しつれいな",
-			"飲み物は：のみものは",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="2/4"
+			texts={[
+				"土曜日の：どようびの",
+				"火曜日の：かようびの",
+				"皆さんは：みなさんは",
+				"アパートは：アパートは",
+				"失礼な：しつれいな",
+				"飲み物は：のみものは",
+			]}
+		/>
+	</table>
 	
 	<p>Notable exceptions in the 尾高 family:</p>
 	
-	<StyledPitch
-		pattern="4/4"
-		texts={[
-			"弟が：おとうとが",
-			"妹が：いもうとが",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="4/4"
+			texts={[
+				"弟が：おとうとが",
+				"妹が：いもうとが",
+			]}
+		/>
+	</table>
 </div>
 
 <style>

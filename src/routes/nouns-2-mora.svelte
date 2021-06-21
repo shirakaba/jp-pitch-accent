@@ -26,55 +26,60 @@
 	
 	<p>These are mostly 平板.</p>
 
-	<StyledPitch
-		pattern="011"
-		texts={[
-			"この日：このひ",
-		]}
-	/>
-	<StyledPitch
-		pattern="0/2"
-		texts={[
-			"これは：これは",
-			"ここの：ここの",
-		]}
-	/>
-
+	<table>
+		<StyledPitch
+			pattern="011"
+			texts={[
+				"この日：このひ",
+			]}
+		/>
+		<StyledPitch
+			pattern="0/2"
+			texts={[
+				"これは：これは",
+				"ここの：ここの",
+			]}
+		/>
+	</table>
 	
 	<h2>Body parts</h2>
 	
 	<p>These are mostly 尾高.</p>
 	
-	<StyledPitch
-		pattern="2/2"
-		texts={[
-			"髪が：かみが",
-			"耳が：みみが",
-			"胸が：むねが",
-			"腹が：はらが",
-			"腕が：うでが",
-			"指が：ゆびが",
-			"足が：あしが",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="2/2"
+			texts={[
+				"髪が：かみが",
+				"耳が：みみが",
+				"胸が：むねが",
+				"腹が：はらが",
+				"腕が：うでが",
+				"指が：ゆびが",
+				"足が：あしが",
+			]}
+		/>
+	</table>
 	
 	<p>Notable exceptions are either 平板 or 頭高:</p>
 	
-	<StyledPitch
-		pattern="0/2"
-		texts={[
-			"口が：くちが",
-			"鼻が：はなが",
-			"首が：くびが",
-		]}
-	/>
-	<StyledPitch
-		pattern="1/2"
-		texts={[
-			"肩が：かたが",
-			"喉が：のどが",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="0/2"
+			texts={[
+				"口が：くちが",
+				"鼻が：はなが",
+				"首が：くびが",
+			]}
+		/>
+		<StyledPitch
+			pattern="1/2"
+			texts={[
+				"肩が：かたが",
+				"喉が：のどが",
+			]}
+		/>
+	</table>
 </div>
 
 <style>
