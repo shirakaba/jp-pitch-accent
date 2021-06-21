@@ -33,62 +33,70 @@
 
 	<h2>Body parts</h2>
 
-	<StyledPitch
-		pattern="1-010"
-		texts={[
-			"目が痛い：めがいたい",
-			"手が痛い：てがいたい",
-			"歯が痛い：はがいたい",
-		]}
-	/>
-	<StyledPitch
-		pattern="0+110"
-		texts={[
-			"胃が痛い：いがいたい",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="1-010"
+			texts={[
+				"目が痛い：めがいたい",
+				"手が痛い：てがいたい",
+				"歯が痛い：はがいたい",
+			]}
+		/>
+		<StyledPitch
+			pattern="0+110"
+			texts={[
+				"胃が痛い：いがいたい",
+			]}
+		/>
+	</table>
 	<h2>Heat</h2>
 	
-	<StyledPitch
-		pattern="1-010"
-		texts={[
-			"火が強い：ひがつよい",
-		]}
-	/>
-	<StyledPitch
-		pattern="0+10"
-		texts={[
-			"日が出る：ひがでる",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="1-010"
+			texts={[
+				"火が強い：ひがつよい",
+			]}
+		/>
+		<StyledPitch
+			pattern="0+10"
+			texts={[
+				"日が出る：ひがでる",
+			]}
+		/>
+	</table>
 	<h2>Life</h2>
 	
-	<StyledPitch
-		pattern="1-010"
-		texts={[
-			"木が高い：きがたかい",
-		]}
-	/>
-	<StyledPitch
-		pattern="0+110"
-		texts={[
-			"気が長い：きがながい",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="1-010"
+			texts={[
+				"木が高い：きがたかい",
+			]}
+		/>
+		<StyledPitch
+			pattern="0+110"
+			texts={[
+				"気が長い：きがながい",
+			]}
+		/>
+	</table>
 
 	<h2>Question words</h2>
 
-	<StyledPitch
-		pattern="1/2"
-		texts={[
-			"何処が：どこが",
-			"どれが：どれが",
-			"どうか：どうか",
-			"何が：なにが",
-			"何故か：なぜか",
-			"誰が：だれが",
-		]}
-	/>
+	<table>
+		<StyledPitch
+			pattern="1/2"
+			texts={[
+				"何処が：どこが",
+				"どれが：どれが",
+				"どうか：どうか",
+				"何が：なにが",
+				"何故か：なぜか",
+				"誰が：だれが",
+			]}
+		/>
+	</table>
 </div>
 
 <style>

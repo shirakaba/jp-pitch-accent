@@ -46,3 +46,7 @@ a:visited {
 label {
 	display: block;
 }
+
+table {
+	border-collapse: collapse;
+}
