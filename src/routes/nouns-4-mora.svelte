@@ -21,7 +21,7 @@
 
 <div class="content">
 	<h1 id="4-mora-nouns">4-mora nouns</h1>
-	<p>Most are 平板, as are the overwhelming majority of 4-morae, 2-kanji nouns (and な-adjectives).</p>
+	<p>Most are 平板, as are the overwhelming majority of 4-mora, 2-kanji nouns (and な-adjectives).</p>
 	
 	<table>
 		<StyledPitch
