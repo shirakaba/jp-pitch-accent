@@ -2,6 +2,8 @@
 	import { page } from '$app/stores';
 	import githubLogo from './github-brands.svg';
 	import twitterLogo from './twitter-brands.svg';
+
+	let expanded: boolean = true;
 </script>
 
 <header>
@@ -18,11 +20,20 @@
 				</a>
 			</li>
 			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">About</a></li>
-			<li class:active={$page.path === '/nouns-1-mora'}><a sveltekit:prefetch href="/nouns-1-mora">1-mora nouns</a></li>
-			<li class:active={$page.path === '/nouns-2-mora'}><a sveltekit:prefetch href="/nouns-2-mora">2-mora nouns</a></li>
-			<li class:active={$page.path === '/nouns-3-mora'}><a sveltekit:prefetch href="/nouns-3-mora">3-mora nouns</a></li>
-			<li class:active={$page.path === '/nouns-4-mora'}><a sveltekit:prefetch href="/nouns-4-mora">4-mora nouns</a></li>
-			<!-- <li class:active={$page.path === '/nouns-many-mora'}><a sveltekit:prefetch href="/nouns-many-mora">many-mora nouns</a></li> -->
+			{#if expanded}	
+				<li class:active={$page.path === '/nouns-1-mora'}><a sveltekit:prefetch href="/nouns-1-mora">1-mora nouns</a></li>
+				<li class:active={$page.path === '/nouns-2-mora'}><a sveltekit:prefetch href="/nouns-2-mora">2-mora nouns</a></li>
+				<li class:active={$page.path === '/nouns-3-mora'}><a sveltekit:prefetch href="/nouns-3-mora">3-mora nouns</a></li>
+				<li class:active={$page.path === '/nouns-4-mora'}><a sveltekit:prefetch href="/nouns-4-mora">4-mora nouns</a></li>
+				<!-- <li class:active={$page.path === '/nouns-many-mora'}><a sveltekit:prefetch href="/nouns-many-mora">many-mora nouns</a></li> -->
+				<li>
+					<button on:click={() => expanded = !expanded}>See less</button>
+				</li>
+			{:else}
+				<li>
+					<button on:click={() => expanded = !expanded}>See more</button>
+				</li>
+			{/if}
 		</ul>
 	</nav>
 </header>
@@ -30,7 +41,7 @@
 <style>
 	header {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 	}
 	.icon {
 		width: 3em;
@@ -47,20 +58,21 @@
 		position: relative;
 		padding: 0;
 		margin: 0;
-		height: 3em;
 		display: flex;
-		justify-content: flex-start;
+		flex-wrap: wrap;
+		justify-content: center;
 		align-items: center;
 		list-style: none;
-		background: var(--background);
-		background-size: contain;
-		overflow-x: scroll;
 		max-width: 100%;
 	}
 
 	li {
+		display: flex;
+		align-items: center;
 		position: relative;
-		height: 100%;
+		height: 3em;
+		background: var(--background);
+		background-size: contain;
 	}
 
 	li.active::before {
