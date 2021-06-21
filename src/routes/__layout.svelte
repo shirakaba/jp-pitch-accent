@@ -9,9 +9,9 @@
 	<slot />
 </main>
 
-<!-- <footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer> -->
+<footer>
+	<p><small>GitHub icon licensed under <a href="https://fontawesome.com/license/free">CC BY 4.0</a>.</small></p>
+</footer>
 
 <style>
 	main {
@@ -25,7 +25,7 @@
 		box-sizing: border-box;
 	}
 
-	/* footer {
+	footer {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -41,5 +41,5 @@
 		footer {
 			padding: 40px 0;
 		}
-	} */
+	}
 </style>

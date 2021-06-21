@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	import logo from './github-brands.svg';
 </script>
 
 <header>
-	<!-- <div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+	<div class="corner">
+		<a href="https://github.com/shirakaba/jp-pitch-accent">
+			<img src={logo} alt="GitHub" />
 		</a>
-	</div> -->
+	</div>
 
 	<div></div>
 
