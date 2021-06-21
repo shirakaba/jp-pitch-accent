@@ -10,7 +10,7 @@
 </main>
 
 <footer>
-	<p><small>GitHub icon licensed under <a href="https://fontawesome.com/license/free">CC BY 4.0</a>.</small></p>
+	<p><small>GitHub and Twitter icons licensed under <a href="https://fontawesome.com/license/free">CC BY 4.0</a>.</small></p>
 </footer>
 
 <style>

@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './github-brands.svg';
+	import githubLogo from './github-brands.svg';
+	import twitterLogo from './twitter-brands.svg';
 </script>
 
 <header>
 	<div class="corner">
 		<a href="https://github.com/shirakaba/jp-pitch-accent">
-			<img src={logo} alt="GitHub" />
+			<img src={githubLogo} alt="GitHub" />
+		</a>
+		<a href="https://twitter.com/LinguaBrowse">
+			<img src={twitterLogo} alt="Twitter" />
 		</a>
 	</div>
 
@@ -41,7 +45,8 @@
 	}
 
 	.corner {
-		width: 3em;
+		display: flex;
+		width: 6em;
 		height: 3em;
 	}
 
